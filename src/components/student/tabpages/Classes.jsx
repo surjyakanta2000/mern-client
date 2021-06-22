@@ -16,7 +16,7 @@ const Classes = ({ classes }) => {
             <tr key={c._id}>
               <td>{c.clsName}</td>
               <td>{c.clsSubject.subCode}</td>
-              <td>{c.clsTeacher.techName}</td>
+              <td>{c.clsTeacher !== null ? c.clsTeacher.techName : ""}</td>
               <td>{c.clsSemester}</td>
             </tr>
           );

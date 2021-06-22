@@ -18,7 +18,6 @@ const EditStudent = ({ history, match }) => {
   useEffect(() => {
     const getSpecData = async () => {
       const student = await getSpecStudent(match.params.id);
-      student.studentPassword = "";
       setStudent(student);
     };
     getSpecData();
@@ -94,6 +93,7 @@ const EditStudent = ({ history, match }) => {
           name="studentPassword"
           value={student.studentPassword}
           handleChange={handleChange}
+          hidden={true}
         />
 
         <Button onClick={handleSubmit} variant="primary" type="submit">

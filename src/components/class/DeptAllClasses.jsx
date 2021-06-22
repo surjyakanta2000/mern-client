@@ -45,7 +45,7 @@ const DeptAllClasses = () => {
               <tr key={c._id}>
                 <td>{c.clsName}</td>
                 <td>{c.clsSubject.subCode}</td>
-                <td>{c.clsTeacher.techName}</td>
+                <td>{c.clsTeacher !== null ? c.clsTeacher.techName : ""}</td>
                 <td>{c.clsSemester}</td>
                 <td className="d-flex justify-content-evenly">
                   <Link className="btn bg-light" to={`/class/update/${c._id}`}>

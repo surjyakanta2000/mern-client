@@ -28,7 +28,7 @@ const EditSubject = ({ history, match }) => {
     await updateSubject(sub._id, {
       subCode: sub.subCode,
       subName: sub.subName,
-      subDept: sub.subDept,
+      subDept: sub.subDept._id,
       subSemester: sub.subSemester,
     });
     history.push("/subjects");

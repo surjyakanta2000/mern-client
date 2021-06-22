@@ -2,7 +2,7 @@ import { Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 const Header = ({ user }) => {
   return (
-    <Navbar bg="primary" variant="dark">
+    <Navbar bg="primary" variant="light">
       <NavLink to="/" className="navbar-brand">
         E-Learning
       </NavLink>

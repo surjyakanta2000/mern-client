@@ -16,7 +16,6 @@ const EditTeacher = ({ history, match }) => {
   useEffect(() => {
     const getSpecData = async () => {
       const tech = await getSpecTeacher(match.params.id);
-      tech.techPassword = "";
       setTech(tech);
     };
     getSpecData();
@@ -77,6 +76,7 @@ const EditTeacher = ({ history, match }) => {
           name="techPassword"
           value={tech.techPassword}
           handleChange={handleChange}
+          hidden={true}
         />
         <Input
           label="Teacher Role"

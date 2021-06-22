@@ -1,23 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Container, Table, Button,Row,Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { getSubject, deleteSubject } from "../../services/subService";
 import Loader from "../common/Loader";
+import DataTable from "../common/DataTable";
 
-const Subjects = () => {
+const Subjects = ({ user }) => {
   const [sub, setSub] = useState([]);
-  const [loader,setLoader]=useState(true)
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
       const sub = await getSubject();
       setSub(sub);
-      setLoader(false)
+      setLoader(false);
     };
     getData();
   }, []);
+  const columns = [
+    { label: "Subject Code", value: "subCode" },
+    { label: "Subject Name", value: "subName" },
+    { label: "Subject Department", value: "subDept.deptCode" },
+    { label: "Subject Semester", value: "subSemester" },
+    { label: "Edit", value: "/subjects/update/" },
+    { label: "Delete", value: "delete" },
+  ];
 
   const handleDelete = async (id) => {
     await deleteSubject(id);
@@ -26,51 +33,30 @@ const Subjects = () => {
   };
   return (
     <Container>
-       {loader?<Loader/>:<>
-      <Row className="mt-2 mb-2">
-        <Col sm={8}>
-      <h2>Subjects..</h2></Col>
-      <Col sm={4}> <Link className="btn btn-primary" to="/subjects/add">
-        Add Subject
-      </Link></Col>
-      </Row>
-      <Table className="text-center" striped bordered hover>
-        <thead>
-          <tr>
-            <th>Subject Code</th>
-            <th>Subject Name</th>
-            <th>Subject Dept</th>
-            <th>Subject Semester</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sub.map((s) => {
-            return (
-              <tr key={s._id}>
-                <td>{s.subCode}</td>
-                <td>{s.subName}</td>
-                <td>{s.subDept.deptCode}</td>
-                <td>{s.subSemester}</td>
-                <td className="d-flex justify-content-evenly">
-                  <Link
-                    className="btn bg-light"
-                    to={`/subjects/update/${s._id}`}
-                  >
-                    <FontAwesomeIcon icon={faEdit} />
-                  </Link>
-                  <Button
-                    className="btn bg-light"
-                    onClick={() => handleDelete(s._id)}
-                  >
-                    <FontAwesomeIcon className="text-danger" icon={faTrash} />
-                  </Button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </Table></>}
+      {loader ? (
+        <Loader />
+      ) : (
+        <>
+          <Row className="mt-2 mb-2">
+            <Col sm={8}>
+              <h2>Subjects..</h2>
+            </Col>
+            {user && user.role === "admin" && (
+              <Col sm={4}>
+                <Link className="btn btn-primary" to="/subjects/add">
+                  Add Subject
+                </Link>
+              </Col>
+            )}
+          </Row>
+          <DataTable
+            tableName="subject"
+            data={sub}
+            columns={columns}
+            handleDelete={handleDelete}
+          />
+        </>
+      )}
     </Container>
   );
 };
