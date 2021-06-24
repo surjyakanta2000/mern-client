@@ -38,3 +38,25 @@ export const getStudentForClass = async (dept, sem) => {
 export const takeStudentAttendance = async (newAttend) => {
   await axios.post(API + `/attend/add`, newAttend);
 };
+
+export const addAssignment = async (assignment) => {
+  await axios.post(API + `/assignment/add`, assignment);
+};
+
+export const getAssignments = async (classId) => {
+  const { data } = await axios.get(API + `/assignment/${classId}`);
+  return data;
+};
+
+export const deleteAssignment = async (assignId) => {
+  await axios.delete(API + `/assignment/delete/${assignId}`);
+};
+
+export const getStudentRes = async (assignment) => {
+  await axios.post(API + `/assignment/response`, assignment);
+};
+
+export const getResponses = async (id) => {
+  const { data } = await axios.get(API + `/assignment/responses/${id}`);
+  return data;
+};

@@ -3,20 +3,24 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { userLogin } from "../services/userService";
 import Input from "./common/Input";
 
-const Login = ({ history }) => {
+const Login = () => {
   const [user, setUser] = useState({
     email: "",
     password: "",
     role: "",
   });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
+
   const handleSubmit = async () => {
     const token = await userLogin(user);
-    localStorage.setItem("token", token);
-    window.location = "/dash";
+    if (token && token !== undefined) {
+      localStorage.setItem("token", token);
+      window.location = "/dash";
+    }
   };
 
   return (

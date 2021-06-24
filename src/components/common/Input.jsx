@@ -7,6 +7,7 @@ const Input = ({
   value,
   handleChange,
   hidden,
+  error,
 }) => {
   return (
     <Form.Group className="mb-1" hidden={hidden}>
@@ -17,7 +18,9 @@ const Input = ({
         name={name}
         value={value}
         onChange={handleChange}
+        required
       />
+      {error && <div className="alert alert-danger">{error}</div>}
     </Form.Group>
   );
 };

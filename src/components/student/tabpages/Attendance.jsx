@@ -1,7 +1,5 @@
 import { Table } from "react-bootstrap";
 const Attendance = ({ attendList }) => {
-  console.log(attendList);
-
   return (
     <Table striped bordered hover>
       <thead>
@@ -16,7 +14,7 @@ const Attendance = ({ attendList }) => {
         {attendList.map((a) => {
           return (
             <tr key={a._id}>
-              <td>{a.clsCode.clsName}</td>
+              <td>{a.clsCode === null ? "" : a.clsCode.clsName}</td>
               <td>{a.attendedCls}</td>
               <td>{a.totalCls}</td>
               <td>{((a.attendedCls / a.totalCls) * 100).toFixed(2)}</td>

@@ -1,6 +1,7 @@
 import { Tabs, Tab } from "react-bootstrap";
 import Info from "./tabpages/Info";
 import MyClasses from "../class/MyClasses";
+
 import DeptAllClasses from "../class/DeptAllClasses";
 const TeacherTab = ({ tech, classes }) => {
   return (
@@ -13,9 +14,6 @@ const TeacherTab = ({ tech, classes }) => {
       </Tab>
       <Tab eventKey="myclass" title="My Classes">
         <MyClasses classes={classes} />
-      </Tab>
-      <Tab eventKey="assignment" title="Assignment">
-        <h1>Assesment..</h1>
       </Tab>
     </Tabs>
   );

@@ -59,7 +59,7 @@ const TakeAttened = ({ match }) => {
           <tr>
             <th>Student Roll</th>
             <th>Student Name</th>
-            <th>Attendence</th>
+            <th className="text-center">Attendence</th>
           </tr>
         </thead>
         <tbody>
@@ -68,7 +68,7 @@ const TakeAttened = ({ match }) => {
               <tr key={s._id}>
                 <td>{s.studentRoll}</td>
                 <td>{s.studentName}</td>
-                <td>
+                <td className="d-flex justify-content-around">
                   <Button onClick={() => handleSubmit(s, "p")}>
                     <FontAwesomeIcon
                       className="text-success bg-transparent"

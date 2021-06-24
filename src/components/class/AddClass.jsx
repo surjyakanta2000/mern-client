@@ -35,7 +35,6 @@ const AddClass = ({ history }) => {
     setCls({ ...cls, [name]: value });
   };
   const handleSubmit = async () => {
-    console.log(cls);
     await addClass(cls);
     history.push("/dash");
   };

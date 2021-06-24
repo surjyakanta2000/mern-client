@@ -25,10 +25,16 @@ const DeptAllClasses = () => {
   };
   return (
     <>
-      <h1>Dept All Classes</h1>
-      <Link className="btn btn-info" to="/class/new">
-        ADD Class
-      </Link>
+      <div className="d-flex justify-content-around">
+        <h1>Dept All Classes</h1>
+        <Link
+          className="btn btn-info"
+          to="/class/new"
+          style={{ height: "25%" }}
+        >
+          ADD Class
+        </Link>
+      </div>
       <Table striped bordered hover>
         <thead>
           <tr>

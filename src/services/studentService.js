@@ -23,3 +23,7 @@ export const getStudentAttend = async (id) => {
   const { data } = await axios.get(API + `/attend/student/${id}`);
   return data;
 };
+
+export const updateProfile = async (id, data) => {
+  await axios.put(API + `/student/profile/update/${id}`, data);
+};
