@@ -25,12 +25,14 @@ const EditSubject = ({ history, match }) => {
     setSub({ ...sub, [name]: value });
   };
   const handleSubmit = async () => {
-    await updateSubject(sub._id, {
+    const updateSub = {
       subCode: sub.subCode,
       subName: sub.subName,
-      subDept: sub.subDept._id,
+      subDept: sub.subDept._id !== undefined ? sub.subDept._id : sub.subDept,
       subSemester: sub.subSemester,
-    });
+    };
+    console.log(updateSub);
+    await updateSubject(sub._id, updateSub);
     history.push("/subjects");
   };
   return (

@@ -20,7 +20,7 @@ const Routes = ({ user }) => {
       <ClassRoutes user={user} />
       <UserRoutes user={user} />
 
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" render={() => <Home user={user} />} />
       <Route exact path="/notfound" component={NotFound} />
     </>
   );

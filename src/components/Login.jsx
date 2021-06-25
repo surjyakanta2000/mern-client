@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { Form, Container, Row, Col } from "react-bootstrap";
 import { userLogin } from "../services/userService";
 import Input from "./common/Input";
 
@@ -27,10 +27,12 @@ const Login = () => {
     <Container>
       <Row className="justify-content-md-center">
         <Col xs={12} md={6}>
-          <h2 className="text-center">Login</h2>
+          <h1 className="text-center fw-bold">Login</h1>
+          <hr></hr>
           <Form onSubmit={(e) => e.preventDefault()}>
             <Input
               label="Email ID"
+              className="bg-transparent"
               type="email"
               placeholder="Enter Email"
               name="email"
@@ -39,6 +41,7 @@ const Login = () => {
             />
             <Input
               label="Password"
+              className="bg-transparent"
               type="password"
               placeholder="Enter Password"
               name="password"
@@ -46,9 +49,13 @@ const Login = () => {
               handleChange={handleChange}
             />
             <Form.Group className="mb-1 ml-2">
-              <Form.Label>Login As.</Form.Label>
+              <Form.Label>
+                <h5>Login As.</h5>
+                <span></span>
+              </Form.Label>
               <Form.Check
                 onChange={handleChange}
+                className="bg-transparent"
                 inline
                 label="Student"
                 name="role"
@@ -58,6 +65,7 @@ const Login = () => {
               />
               <Form.Check
                 onChange={handleChange}
+                className="bg-transparent"
                 inline
                 label="Teacher"
                 name="role"
@@ -67,6 +75,7 @@ const Login = () => {
               />
               <Form.Check
                 onChange={handleChange}
+                className="bg-transparent"
                 inline
                 label="HOD"
                 name="role"
@@ -76,9 +85,14 @@ const Login = () => {
               />
             </Form.Group>
             <span className="d-flex justify-content-center">
-              <Button onClick={handleSubmit} variant="primary" type="submit">
+              <button
+                onClick={handleSubmit}
+                className="btn btn-outline-dark"
+                type="submit"
+                style={{ width: "40%" }}
+              >
                 Login
-              </Button>
+              </button>
             </span>
           </Form>
         </Col>

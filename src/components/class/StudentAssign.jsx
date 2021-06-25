@@ -81,9 +81,10 @@ const StudentAssign = ({ match, history, user }) => {
                   <a
                     className="btn btn-success"
                     href={"http://localhost:8000/" + assign.assignFile}
-                    download={assign.assignName}
+                    target="_blank"
+                    rel="noreferrer"
                   >
-                    Download
+                    View
                   </a>
                 </Col>
               </Row>

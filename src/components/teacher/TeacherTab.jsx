@@ -1,9 +1,9 @@
 import { Tabs, Tab } from "react-bootstrap";
 import MyClasses from "../class/MyClasses";
-import Info from "./tabpages/Info";
+import Info from "../common/Info";
 const TeacherTab = ({ tech, classes }) => {
   return (
-    <Tabs defaultActiveKey="info" className="mb-3" fill>
+    <Tabs defaultActiveKey="class" className="mb-3" fill>
       <Tab eventKey="info" title="Info">
         <Info tech={tech} />
       </Tab>

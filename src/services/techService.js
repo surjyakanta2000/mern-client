@@ -18,3 +18,6 @@ export const updateTeacher = async (id, teacher) => {
 export const deleteTeacher = async (id) => {
   await axios.delete(API + `/tech/delete/${id}`);
 };
+export const updateProfile = async (id, data) => {
+  await axios.put(API + `/tech/profile/update/${id}`, data);
+};

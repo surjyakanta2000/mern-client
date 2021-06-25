@@ -4,6 +4,8 @@ import Login from "../components/Login";
 import Logout from "../components/Logout";
 import StudentDash from "../components/student/StudentDash";
 import TeacherDash from "../components/teacher/TeacherDash";
+import ProfileUpdate from "../components/student/ProfileUpdate";
+import TechProfileUpdate from "../components/teacher/TechProfileUpdate";
 
 const UserRoutes = ({ user }) => {
   return (
@@ -32,6 +34,21 @@ const UserRoutes = ({ user }) => {
           }
           if (user && user !== undefined && user.role === "admin") {
             return <Redirect from="/dash" to="/admin/dash" />;
+          }
+          if (!user || user === undefined) {
+            return <Redirect to="/login" />;
+          }
+        }}
+      />
+      <Route
+        exact
+        path="/profile/update/:id"
+        render={(props) => {
+          if (user && user.role === "student") {
+            return <ProfileUpdate {...props} />;
+          }
+          if (user && (user.role === "teacher" || user.role === "hod")) {
+            return <TechProfileUpdate {...props} />;
           }
           if (!user || user === undefined) {
             return <Redirect to="/login" />;

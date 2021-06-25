@@ -11,7 +11,7 @@ const InputDept = ({ name, value, handleChange }) => {
     deptData();
   }, []);
   return (
-    <Form.Group className="mb-1">
+    <Form.Group className="mb-1 input-form">
       <Form.Label>Department</Form.Label>
       <Form.Control as="select" name={name} onChange={handleChange}>
         {value === "" ? (
