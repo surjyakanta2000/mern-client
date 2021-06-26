@@ -60,3 +60,8 @@ export const getResponses = async (id) => {
   const { data } = await axios.get(API + `/assignment/responses/${id}`);
   return data;
 };
+
+export const getAttendForDept = async (id) => {
+  const { data } = await axios.get(API + `/attend/all/${id}`);
+  return data;
+};

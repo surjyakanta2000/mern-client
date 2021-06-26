@@ -4,14 +4,20 @@ import { getCurrentUser } from "../../services/userService";
 import { getSpecTeacher } from "../../services/techService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
-import { getClassForTeacher } from "../../services/classService";
+import {
+  getClassForTeacher,
+  getAttendForDept,
+} from "../../services/classService";
 import HodTab from "./HodTab";
 import defaultProfilePic from "../../images/defaultProfilePic.png";
 import { Link } from "react-router-dom";
+import Loader from "../common/Loader";
 
 const HodDash = () => {
   const [tech, setTeacher] = useState({});
+  const [loader, setLoader] = useState(true);
   const [classes, setClasses] = useState([]);
+  const [attendanceList, setAllAttendanceList] = useState([]);
   useEffect(() => {
     const getData = async () => {
       const user = getCurrentUser();
@@ -19,77 +25,88 @@ const HodDash = () => {
       setTeacher(teacherData);
       const classes = await getClassForTeacher(teacherData._id);
       setClasses(classes);
+      const attendanceList = await getAttendForDept(teacherData.techDept._id);
+      setAllAttendanceList(attendanceList);
+      setLoader(false);
     };
     getData();
     // eslint-disable-next-line
   }, []);
   return (
     <>
-      <Container>
-        <Row>
-          <Col className="d-flex justify-content-center">
-            <h3>Welcome to HOD Dashboard...</h3>
-          </Col>
-          <hr></hr>
-        </Row>
+      {loader ? (
+        <Loader />
+      ) : (
+        <Container>
+          <Row>
+            <Col className="d-flex justify-content-center">
+              <h2 className="fw-bold">Welcome to HOD Dashboard...</h2>
+            </Col>
+            <hr></hr>
+          </Row>
 
-        <Row>
-          <Col md={{ span: 1, offset: 1 }} className="text-center">
-            <img
-              className="img-thumbnail text-center"
-              src={
-                tech.profilePic &&
-                tech.profilePic !== undefined &&
-                tech.profilePic !== "" &&
-                tech.profilePic !== null
-                  ? `http://localhost:8000/${tech.profilePic}`
-                  : defaultProfilePic
-              }
-              alt={tech.techName}
-              height="100px"
-              width="100px"
+          <Row>
+            <Col md={{ span: 1, offset: 1 }} className="text-center">
+              <img
+                className="img-thumbnail text-center"
+                src={
+                  tech.profilePic &&
+                  tech.profilePic !== undefined &&
+                  tech.profilePic !== "" &&
+                  tech.profilePic !== null
+                    ? `http://localhost:8000/${tech.profilePic}`
+                    : defaultProfilePic
+                }
+                alt={tech.techName}
+                height="100px"
+                width="100px"
+              />
+            </Col>
+            <Col md={{ span: 5, offset: 0 }}>
+              <Row>
+                <Col xs={6} md={4}>
+                  <h3>Name</h3>
+                </Col>
+                <Col xs={6} md={8}>
+                  <h3>{tech.techName}</h3>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={6} md={4}>
+                  <h4>Email</h4>
+                </Col>
+                <Col xs={6} md={8}>
+                  <h4>{tech.techEmail}</h4>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={6} md={4}>
+                  <h5>Phone</h5>
+                </Col>
+                <Col xs={6} md={8}>
+                  <h5>{tech.techPhone}</h5>
+                </Col>
+              </Row>
+            </Col>
+            <Col md={{ span: 2, offset: 1 }} className="text-center">
+              <Link
+                className="btn"
+                to={`/profile/update/${tech._id}`}
+                title="Edit Profile"
+              >
+                <FontAwesomeIcon icon={faEdit} />
+              </Link>
+            </Col>
+          </Row>
+          <Row>
+            <HodTab
+              tech={tech}
+              classes={classes}
+              attendanceList={attendanceList}
             />
-          </Col>
-          <Col md={{ span: 5, offset: 0 }}>
-            <Row>
-              <Col xs={6} md={4}>
-                <h3>Name</h3>
-              </Col>
-              <Col xs={6} md={8}>
-                <h3>{tech.techName}</h3>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={6} md={4}>
-                <h4>Email</h4>
-              </Col>
-              <Col xs={6} md={8}>
-                <h4>{tech.techEmail}</h4>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={6} md={4}>
-                <h5>Phone</h5>
-              </Col>
-              <Col xs={6} md={8}>
-                <h5>{tech.techPhone}</h5>
-              </Col>
-            </Row>
-          </Col>
-          <Col md={{ span: 2, offset: 1 }} className="text-center">
-            <Link
-              className="btn"
-              to={`/profile/update/${tech._id}`}
-              title="Edit Profile"
-            >
-              <FontAwesomeIcon icon={faEdit} />
-            </Link>
-          </Col>
-        </Row>
-        <Row>
-          <HodTab tech={tech} classes={classes} />
-        </Row>
-      </Container>
+          </Row>
+        </Container>
+      )}
     </>
   );
 };

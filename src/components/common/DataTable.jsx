@@ -2,7 +2,12 @@ import { Table, Button } from "react-bootstrap";
 import _ from "lodash";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEdit,
+  faTrash,
+  faSortDown,
+  faSortUp,
+} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { deleteTeacher, getTeacher } from "../../services/techService";
 import { getSubject, deleteSubject } from "../../services/subService";
@@ -12,11 +17,15 @@ import { getCurrentUser } from "../../services/userService";
 const DataTable = ({ tableName, data, columns }) => {
   const [info, setInfo] = useState([]);
   const [user, setUser] = useState({});
-
+  const [order, setOrder] = useState("");
+  const [sortCol, setSortCol] = useState("");
   useEffect(() => {
     const user = getCurrentUser();
     setUser(user);
-    setInfo(data);
+    const sortedData = _.orderBy(data, [columns[0].value], ["asc"]);
+    setInfo(sortedData);
+    setOrder("asc");
+    setSortCol(columns[0].value);
     // eslint-disable-next-line
   }, []);
   const handleDelete = async (id) => {
@@ -54,6 +63,14 @@ const DataTable = ({ tableName, data, columns }) => {
     return _.get(item, column.value);
   };
 
+  const handleSort = (column, order) => {
+    let newOrder = order === "asc" ? "desc" : "asc";
+    const sortedData = _.orderBy(data, [column], [newOrder]);
+    setOrder(newOrder);
+    setInfo(sortedData);
+    setSortCol(column);
+  };
+
   return (
     <>
       {info.length === 0 ? (
@@ -75,7 +92,19 @@ const DataTable = ({ tableName, data, columns }) => {
                     }
                   }
 
-                  return <th key={column.value}>{column.label}</th>;
+                  return (
+                    <th
+                      key={column.value}
+                      onClick={() => handleSort(column.value, order)}
+                    >
+                      {column.label}{" "}
+                      {sortCol === column.value && (
+                        <FontAwesomeIcon
+                          icon={order === "asc" ? faSortUp : faSortDown}
+                        />
+                      )}
+                    </th>
+                  );
                 })}
               </tr>
             </thead>

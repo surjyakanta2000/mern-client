@@ -15,7 +15,6 @@ const AdminLogin = () => {
   };
   const handleSubmit = async () => {
     const token = await userLogin(user);
-    console.log(token);
     localStorage.setItem("token", token);
     window.location = "/admin/dash";
   };

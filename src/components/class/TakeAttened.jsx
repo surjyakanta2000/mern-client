@@ -36,6 +36,8 @@ const TakeAttened = ({ match }) => {
       clsDate: getDate(),
       student: s._id,
       status: key,
+      department: s.studentDept,
+      semester: s.studentSemester,
     };
     setNewAttend(newAttend);
     await takeStudentAttendance(newAttened);

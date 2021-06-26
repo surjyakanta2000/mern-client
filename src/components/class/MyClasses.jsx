@@ -9,6 +9,7 @@ const MyClasses = ({ classes }) => {
           <tr>
             <th>Class Name</th>
             <th>Subject Code</th>
+            <th>Semester</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -18,6 +19,7 @@ const MyClasses = ({ classes }) => {
               <tr key={c._id}>
                 <td>{c.clsName}</td>
                 <td>{c.clsSubject.subCode}</td>
+                <td>{c.clsSemester}</td>
                 <td>
                   <Link
                     className="btn btn-sm btn-primary"

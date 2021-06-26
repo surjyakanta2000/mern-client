@@ -4,7 +4,7 @@ import Classes from "./tabpages/Classes";
 import Info from "./tabpages/Info";
 const StudentTab = ({ student, classes, attendList }) => {
   return (
-    <Tabs defaultActiveKey="class" className="mb-3" fill>
+    <Tabs defaultActiveKey="class" className="mb-3" fill variant="pills">
       <Tab eventKey="info" title="Info">
         <Info student={student} />
       </Tab>
