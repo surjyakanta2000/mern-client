@@ -12,18 +12,24 @@ const AddTeacher = ({ history }) => {
     techPhone: "",
     techPassword: "",
   });
+  const [err, setErr] = useState("");
   const handleChange = (e) => {
     const { name, value } = e.target;
     setTech({ ...tech, [name]: value });
+    setErr("");
   };
   const handleSubmit = async () => {
-    await addTeacher(tech);
-    history.push("/teachers");
+    const res = await addTeacher(tech);
+    if (res && res.message !== undefined) setErr(res.message);
+    else history.push("/teachers");
   };
 
   return (
     <Container>
       <Form onSubmit={(e) => e.preventDefault()}>
+        {err && err !== "" && err !== undefined && (
+          <div className="text-danger text-center fw-bold">{err}</div>
+        )}
         <Input
           label="Teacher Name"
           type="text"

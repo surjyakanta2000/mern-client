@@ -8,18 +8,24 @@ const AddDept = ({ history }) => {
     deptCode: "",
     deptName: "",
   });
+  const [err, setErr] = useState("");
   const handleChange = (e) => {
     const { name, value } = e.target;
     setDept({ ...dept, [name]: value });
+    setErr("");
   };
   const handleSubmit = async () => {
-    await addDept(dept);
-    history.push("/departments");
+    const res = await addDept(dept);
+    if (res && res.message !== undefined) setErr(res.message);
+    else history.push("/departments");
   };
 
   return (
     <Container>
       <Form onSubmit={(e) => e.preventDefault()}>
+        {err && err !== "" && err !== undefined && (
+          <div className="text-danger text-center fw-bold">{err}</div>
+        )}
         <Input
           label="Department Code"
           type="text"

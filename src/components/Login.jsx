@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Form, Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { userLogin } from "../services/userService";
 import Input from "./common/Input";
 
@@ -9,16 +10,19 @@ const Login = () => {
     password: "",
     role: "",
   });
+  const [err, setErr] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
+    setErr("");
   };
 
   const handleSubmit = async () => {
-    const token = await userLogin(user);
-    if (token && token !== undefined) {
-      localStorage.setItem("token", token);
+    const res = await userLogin(user);
+    if (res && res.message !== undefined) setErr(res.message);
+    else {
+      localStorage.setItem("token", res);
       window.location = "/dash";
     }
   };
@@ -30,6 +34,9 @@ const Login = () => {
           <h1 className="text-center fw-bold">Login</h1>
           <hr></hr>
           <Form onSubmit={(e) => e.preventDefault()}>
+            {err && err !== "" && err !== undefined && (
+              <div className="text-danger text-center fw-bold">{err}</div>
+            )}
             <Input
               label="Email ID"
               className="bg-transparent"
@@ -84,7 +91,12 @@ const Login = () => {
                 required
               />
             </Form.Group>
-            <span className="d-flex justify-content-center">
+            <span>
+              <Link to="/usercheck" className="fw-bold reset-span">
+                Forget Password ?
+              </Link>
+            </span>
+            <span className="d-flex justify-content-center mt-2">
               <button
                 onClick={handleSubmit}
                 className="btn btn-outline-dark"

@@ -12,18 +12,25 @@ const AddSubject = ({ history }) => {
     subDept: "",
     subSemester: "",
   });
+  const [err, setErr] = useState("");
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setSub({ ...sub, [name]: value });
+    setErr("");
   };
   const handleSubmit = async () => {
-    await addSubject(sub);
-    history.push("/subjects");
+    const res = await addSubject(sub);
+    if (res && res.message !== undefined) setErr(res.message);
+    else history.push("/subjects");
   };
 
   return (
     <Container>
       <Form onSubmit={(e) => e.preventDefault()}>
+        {err && err !== "" && err !== undefined && (
+          <div className="text-danger text-center fw-bold">{err}</div>
+        )}
         <Input
           label="Subject Code"
           type="text"

@@ -15,6 +15,8 @@ const EditStudent = ({ history, match }) => {
     studentPhone: "",
     studentPassword: "",
   });
+  const [err, setErr] = useState("");
+
   useEffect(() => {
     const getSpecData = async () => {
       const student = await getSpecStudent(match.params.id);
@@ -26,9 +28,10 @@ const EditStudent = ({ history, match }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setStudent({ ...student, [name]: value });
+    setErr("");
   };
   const handleSubmit = async () => {
-    await updateStudent(student._id, {
+    const res = await updateStudent(student._id, {
       studentRoll: student.studentRoll,
       studentName: student.studentName,
       studentDept: student.studentDept._id,
@@ -37,13 +40,17 @@ const EditStudent = ({ history, match }) => {
       studentPhone: student.studentPhone,
       studentPassword: student.studentPassword,
     });
-    history.push("/students");
+    if (res && res.message !== undefined) setErr(res.message);
+    else history.push("/students");
   };
 
   return (
     <Container>
       <h1>Edit Student..</h1>
       <Form onSubmit={(e) => e.preventDefault()}>
+        {err && err !== "" && err !== undefined && (
+          <div className="text-danger text-center fw-bold">{err}</div>
+        )}
         <Input
           label="Student Roll"
           type="text"

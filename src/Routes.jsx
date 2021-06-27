@@ -7,12 +7,11 @@ import SubjectRoutes from "./routes/SubjectRoutes";
 import StudentRoutes from "./routes/studentRoutes";
 import ClassRoutes from "./routes/ClassRoutes";
 import UserRoutes from "./routes/UserRoutes";
-import NotFound from "./components/NotFound";
 
 const Routes = ({ user }) => {
   return (
     <>
-      <AdminRoutes />
+      <AdminRoutes user={user} />
       <DeptRoutes user={user} />
       <TechRoutes user={user} />
       <SubjectRoutes user={user} />
@@ -21,7 +20,6 @@ const Routes = ({ user }) => {
       <UserRoutes user={user} />
 
       <Route exact path="/" render={() => <Home user={user} />} />
-      <Route exact path="/notfound" component={NotFound} />
     </>
   );
 };

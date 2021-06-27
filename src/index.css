@@ -33,3 +33,6 @@ code {
   border-left: 1px solid rgb(41, 41, 41) !important;
   color: rgb(34, 34, 34) !important;
 }
+.reset-span:hover {
+  color: red;
+}

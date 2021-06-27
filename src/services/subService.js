@@ -10,10 +10,12 @@ export const getSpecSubject = async (id) => {
   return data;
 };
 export const addSubject = async (newSubject) => {
-  await axios.post(API + `/sub/add`, newSubject);
+  const { data } = await axios.post(API + `/sub/add`, newSubject);
+  if (data !== undefined && data.message !== "success") return data;
 };
 export const updateSubject = async (id, Subject) => {
-  await axios.put(API + `/sub/update/${id}`, Subject);
+  const { data } = await axios.put(API + `/sub/update/${id}`, Subject);
+  if (data !== undefined && data.message !== "success") return data;
 };
 export const deleteSubject = async (id) => {
   await axios.delete(API + `/sub/delete/${id}`);

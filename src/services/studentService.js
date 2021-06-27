@@ -10,10 +10,12 @@ export const getSpecStudent = async (id) => {
   return data;
 };
 export const addStudent = async (newStudent) => {
-  await axios.post(API + `/student/add`, newStudent);
+  const { data } = await axios.post(API + `/student/add`, newStudent);
+  if (data !== undefined && data.message !== "success") return data;
 };
 export const updateStudent = async (id, student) => {
-  await axios.put(API + `/student/update/${id}`, student);
+  const { data } = await axios.put(API + `/student/update/${id}`, student);
+  if (data !== undefined && data.message !== "success") return data;
 };
 export const deleteStudent = async (id) => {
   await axios.delete(API + `/student/delete/${id}`);

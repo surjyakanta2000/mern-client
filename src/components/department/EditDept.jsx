@@ -8,6 +8,8 @@ const EditDept = ({ history, match }) => {
     deptCode: "",
     deptName: "",
   });
+  const [err, setErr] = useState("");
+
   useEffect(() => {
     const getSpecData = async () => {
       const dept = await getSpecDept(match.params.id);
@@ -19,19 +21,24 @@ const EditDept = ({ history, match }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setDept({ ...dept, [name]: value });
+    setErr("");
   };
   const handleSubmit = async () => {
-    await updateDept(dept._id, {
+    const res = await updateDept(dept._id, {
       deptCode: dept.deptCode,
       deptName: dept.deptName,
     });
-    history.push("/departments");
+    if (res && res.message !== undefined) setErr(res.message);
+    else history.push("/departments");
   };
 
   return (
     <Container>
       <h1>Update Department</h1>
       <Form onSubmit={(e) => e.preventDefault()}>
+        {err && err !== "" && err !== undefined && (
+          <div className="text-danger text-center fw-bold">{err}</div>
+        )}
         <Input
           label="Department Code"
           type="text"

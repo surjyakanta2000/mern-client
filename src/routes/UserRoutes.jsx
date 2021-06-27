@@ -6,6 +6,8 @@ import StudentDash from "../components/student/StudentDash";
 import TeacherDash from "../components/teacher/TeacherDash";
 import ProfileUpdate from "../components/student/ProfileUpdate";
 import TechProfileUpdate from "../components/teacher/TechProfileUpdate";
+import UserCheck from "../components/common/UserCheck";
+import Resetpassword from "../components/common/ResetPassword";
 
 const UserRoutes = ({ user }) => {
   return (
@@ -18,6 +20,8 @@ const UserRoutes = ({ user }) => {
         }
       />
       <Route exact path="/logout" component={Logout} />
+      <Route exact path="/usercheck" component={UserCheck} />
+      <Route exact path="/resetpassword/:role/:id" component={Resetpassword} />
 
       <Route
         exact

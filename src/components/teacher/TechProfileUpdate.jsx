@@ -6,14 +6,17 @@ import InputDept from "../common/InputDept";
 import Loader from "../common/Loader";
 
 const TechProfileUpdate = ({ match, history }) => {
-  const [tech, setTeacher] = useState({});
+  const [tech, setTeacher] = useState({
+    securityQuestion: "",
+    securityAnswer: "",
+  });
   const [formData, setFormData] = useState("");
 
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     const getData = async () => {
-      const tech = await getSpecTeacher(match.params.id);
-      setTeacher(tech);
+      const t = await getSpecTeacher(match.params.id);
+      setTeacher(t);
       setLoader(false);
     };
     getData();
@@ -36,6 +39,8 @@ const TechProfileUpdate = ({ match, history }) => {
     data.append("techPassword", tech.techPassword);
     data.append("techAge", tech.techAge);
     data.append("techGender", tech.techGender);
+    data.append("securityQuestion", tech.securityQuestion);
+    data.append("securityAnswer", tech.securityAnswer);
     data.append("role", tech.role);
     setFormData(data);
   };
@@ -132,6 +137,22 @@ const TechProfileUpdate = ({ match, history }) => {
                   value={tech.role}
                   handleChange={handleChange}
                   hidden
+                />
+                <Input
+                  label="Enter a Security Question"
+                  type="text"
+                  placeholder="Enter Question"
+                  name="securityQuestion"
+                  value={tech.securityQuestion}
+                  handleChange={handleChange}
+                />
+                <Input
+                  label="Enter your security Answer"
+                  type="text"
+                  placeholder="Enter Answer"
+                  name="securityAnswer"
+                  value={tech.securityAnswer}
+                  handleChange={handleChange}
                 />
 
                 <Form.Group className="mb-3">

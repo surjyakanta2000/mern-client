@@ -55,7 +55,7 @@ const TakeAttened = ({ match }) => {
 
   return (
     <Container>
-      <h1>class name : {currentClass.clsName}</h1>
+      <h1>Class Name : {currentClass.clsName}</h1>
       <Table striped bordered hover>
         <thead>
           <tr>

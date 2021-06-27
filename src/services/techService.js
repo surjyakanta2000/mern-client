@@ -10,10 +10,12 @@ export const getSpecTeacher = async (id) => {
   return data;
 };
 export const addTeacher = async (newTech) => {
-  await axios.post(API + `/tech/add`, newTech);
+  const { data } = await axios.post(API + `/tech/add`, newTech);
+  if (data !== undefined && data.message !== "success") return data;
 };
 export const updateTeacher = async (id, teacher) => {
-  await axios.put(API + `/tech/update/${id}`, teacher);
+  const { data } = await axios.put(API + `/tech/update/${id}`, teacher);
+  if (data !== undefined && data.message !== "success") return data;
 };
 export const deleteTeacher = async (id) => {
   await axios.delete(API + `/tech/delete/${id}`);

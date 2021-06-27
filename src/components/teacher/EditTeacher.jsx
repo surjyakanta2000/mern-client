@@ -13,6 +13,7 @@ const EditTeacher = ({ history, match }) => {
     techPassword: "",
     role: "",
   });
+  const [err, setErr] = useState("");
   useEffect(() => {
     const getSpecData = async () => {
       const tech = await getSpecTeacher(match.params.id);
@@ -24,22 +25,28 @@ const EditTeacher = ({ history, match }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setTech({ ...tech, [name]: value });
+    setErr("");
   };
   const handleSubmit = async () => {
-    await updateTeacher(tech._id, {
+    const res = await updateTeacher(tech._id, {
       role: tech.role,
       techName: tech.techName,
-      techDept: tech.techDept._id,
+      techDept:
+        tech.techDept._id !== undefined ? tech.techDept._id : tech.techDept,
       techEmail: tech.techEmail,
       techPhone: tech.techPhone,
       techPassword: tech.techPassword,
     });
-    history.push("/teachers");
+    if (res && res.message !== undefined) setErr(res.message);
+    else history.push("/teachers");
   };
 
   return (
     <Container>
       <Form onSubmit={(e) => e.preventDefault()}>
+        {err && err !== "" && err !== undefined && (
+          <div className="text-danger text-center fw-bold">{err}</div>
+        )}
         <Input
           label="Teacher Name"
           type="text"

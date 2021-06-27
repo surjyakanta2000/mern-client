@@ -12,6 +12,8 @@ const EditSubject = ({ history, match }) => {
     subDept: "",
     subSemester: "",
   });
+  const [err, setErr] = useState("");
+
   useEffect(() => {
     const getSpecData = async () => {
       const sub = await getSpecSubject(match.params.id);
@@ -31,13 +33,16 @@ const EditSubject = ({ history, match }) => {
       subDept: sub.subDept._id !== undefined ? sub.subDept._id : sub.subDept,
       subSemester: sub.subSemester,
     };
-    console.log(updateSub);
-    await updateSubject(sub._id, updateSub);
-    history.push("/subjects");
+    const res = await updateSubject(sub._id, updateSub);
+    if (res && res.message !== undefined) setErr(res.message);
+    else history.push("/subjects");
   };
   return (
     <Container>
       <Form onSubmit={(e) => e.preventDefault()}>
+        {err && err !== "" && err !== undefined && (
+          <div className="text-danger text-center fw-bold">{err}</div>
+        )}
         <Input
           label="Subject Code"
           type="text"

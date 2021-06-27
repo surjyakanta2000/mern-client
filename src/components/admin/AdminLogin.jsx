@@ -9,14 +9,20 @@ const AdminLogin = () => {
     password: "",
     role: "admin",
   });
+  const [err, setErr] = useState("");
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
+    setErr("");
   };
   const handleSubmit = async () => {
-    const token = await userLogin(user);
-    localStorage.setItem("token", token);
-    window.location = "/admin/dash";
+    const res = await userLogin(user);
+    if (res && res.message !== undefined) {
+      setErr(res.message);
+    } else {
+      localStorage.setItem("token", res);
+      window.location = "/admin/dash";
+    }
   };
   return (
     <Container>
@@ -24,6 +30,9 @@ const AdminLogin = () => {
         <Col xs={12} md={6}>
           <h2 className="text-center">Admin Login</h2>
           <Form onSubmit={(e) => e.preventDefault()}>
+            {err && err !== "" && err !== undefined && (
+              <div className="text-danger text-center fw-bold">{err}</div>
+            )}
             <Input
               label="Email ID"
               type="email"
