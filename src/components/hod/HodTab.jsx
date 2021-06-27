@@ -6,7 +6,7 @@ import MyClasses from "../class/MyClasses";
 import DeptAllClasses from "../class/DeptAllClasses";
 const TeacherTab = ({ tech, classes, attendanceList }) => {
   return (
-    <Tabs defaultActiveKey="class" className="mb-3" fill variant="pills">
+    <Tabs defaultActiveKey="class" className="mb-3" fill>
       <Tab eventKey="info" title="Info">
         <Info tech={tech} />
       </Tab>

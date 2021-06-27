@@ -55,9 +55,11 @@ const AllAttendance = ({ attendanceList }) => {
         </button>
       </div>
       <form className="form-inline">
-        <InputSem value="" name="semester" handleChange={handleChange} />
+        <div style={{ width: "30%" }}>
+          <InputSem value="" name="semester" handleChange={handleChange} />
+        </div>
       </form>
-      <Table>
+      <Table className="mt-2">
         <thead>
           <tr>
             {columns.map((column) => {

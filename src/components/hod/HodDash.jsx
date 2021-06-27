@@ -38,67 +38,74 @@ const HodDash = () => {
         <Loader />
       ) : (
         <Container>
-          <Row>
-            <Col className="d-flex justify-content-center">
-              <h2 className="fw-bold">Welcome to HOD Dashboard...</h2>
-            </Col>
-            <hr></hr>
-          </Row>
+          <div className="model-dash">
+            <Row>
+              <Col className="d-flex justify-content-center">
+                <h2 className="fw-bold">Welcome to HOD Dashboard...</h2>
+              </Col>
+              <hr></hr>
+            </Row>
 
-          <Row>
-            <Col md={{ span: 1, offset: 1 }} className="text-center">
-              <img
-                className="img-thumbnail text-center"
-                src={
-                  tech.profilePic &&
-                  tech.profilePic !== undefined &&
-                  tech.profilePic !== "" &&
-                  tech.profilePic !== null
-                    ? `http://localhost:8000/${tech.profilePic}`
-                    : defaultProfilePic
-                }
-                alt={tech.techName}
-                height="100px"
-                width="100px"
-              />
-            </Col>
-            <Col md={{ span: 5, offset: 0 }}>
-              <Row>
-                <Col xs={6} md={4}>
-                  <h3>Name</h3>
-                </Col>
-                <Col xs={6} md={8}>
-                  <h3>{tech.techName}</h3>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={6} md={4}>
-                  <h4>Email</h4>
-                </Col>
-                <Col xs={6} md={8}>
-                  <h4>{tech.techEmail}</h4>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={6} md={4}>
-                  <h5>Phone</h5>
-                </Col>
-                <Col xs={6} md={8}>
-                  <h5>{tech.techPhone}</h5>
-                </Col>
-              </Row>
-            </Col>
-            <Col md={{ span: 2, offset: 1 }} className="text-center">
-              <Link
-                className="btn"
-                to={`/profile/update/${tech._id}`}
-                title="Edit Profile"
-              >
-                <FontAwesomeIcon icon={faEdit} />
-              </Link>
-            </Col>
-          </Row>
-          <Row>
+            <Row>
+              <Col md={{ span: 2, offset: 0 }} className="text-center">
+                <img
+                  className="img-thumbnail text-center mb-3"
+                  src={
+                    tech.profilePic &&
+                    tech.profilePic !== undefined &&
+                    tech.profilePic !== "" &&
+                    tech.profilePic !== null
+                      ? `http://localhost:8000/${tech.profilePic}`
+                      : defaultProfilePic
+                  }
+                  alt={tech.techName}
+                  height="100px"
+                  width="100px"
+                />
+              </Col>
+              <Col md={{ span: 8, offset: 0 }}>
+                <Row>
+                  <Col xs={6} md={4}>
+                    <h3>Name</h3>
+                  </Col>
+                  <Col xs={6} md={8}>
+                    <h3>{tech.techName}</h3>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={6} md={4}>
+                    <h4>Email</h4>
+                  </Col>
+                  <Col xs={6} md={8}>
+                    <h4>{tech.techEmail}</h4>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={6} md={4}>
+                    <h5>Phone</h5>
+                  </Col>
+                  <Col xs={6} md={8}>
+                    <h5>{tech.techPhone}</h5>
+                  </Col>
+                </Row>
+              </Col>
+              <Col md={{ span: 1, offset: 0 }} className="text-center">
+                <Link
+                  className="btn btn-success"
+                  style={{ boder: "1px solid white" }}
+                  to={`/profile/update/${tech._id}`}
+                  title="Edit Profile"
+                >
+                  <FontAwesomeIcon
+                    style={{ boder: "1px solid white" }}
+                    icon={faEdit}
+                  />
+                </Link>
+              </Col>
+            </Row>
+          </div>
+
+          <Row className="mt-2">
             <HodTab
               tech={tech}
               classes={classes}

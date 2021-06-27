@@ -4,9 +4,14 @@ import _ from "lodash";
 const InputSem = ({ name, value, handleChange }) => {
   const semesters = _.range(1, 9);
   return (
-    <Form.Group className="mb-1 input-form">
+    <Form.Group className="mb-1 input-form bg-transparent">
       <Form.Label>Semester</Form.Label>
-      <Form.Control as="select" name={name} onChange={handleChange}>
+      <Form.Control
+        className="bg-transparent"
+        as="select"
+        name={name}
+        onChange={handleChange}
+      >
         {value === "" ? (
           <option value="">Select Semester</option>
         ) : (

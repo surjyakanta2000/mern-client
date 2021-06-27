@@ -79,54 +79,56 @@ const DataTable = ({ tableName, data, columns }) => {
         </h2>
       ) : (
         <>
-          <Table striped bordered hover responsive>
-            <thead>
-              <tr>
-                {columns.map((column) => {
-                  if (column.label === "Edit" || column.label === "Delete") {
-                    if (!user || user === undefined) {
-                      return null;
+          <div className="model-dash">
+            <Table striped bordered hover responsive>
+              <thead>
+                <tr>
+                  {columns.map((column) => {
+                    if (column.label === "Edit" || column.label === "Delete") {
+                      if (!user || user === undefined) {
+                        return null;
+                      }
+                      if (user && user.role !== "admin") {
+                        return null;
+                      }
                     }
-                    if (user && user.role !== "admin") {
-                      return null;
-                    }
-                  }
 
+                    return (
+                      <th
+                        key={column.value}
+                        onClick={() => handleSort(column.value, order)}
+                      >
+                        {column.label}{" "}
+                        {sortCol === column.value && (
+                          <FontAwesomeIcon
+                            icon={order === "asc" ? faSortUp : faSortDown}
+                          />
+                        )}
+                      </th>
+                    );
+                  })}
+                </tr>
+              </thead>
+              <tbody>
+                {info.map((item) => {
                   return (
-                    <th
-                      key={column.value}
-                      onClick={() => handleSort(column.value, order)}
-                    >
-                      {column.label}{" "}
-                      {sortCol === column.value && (
-                        <FontAwesomeIcon
-                          icon={order === "asc" ? faSortUp : faSortDown}
-                        />
-                      )}
-                    </th>
+                    <tr key={item._id}>
+                      {columns.map((column) => {
+                        return (
+                          <td
+                            className={"text-" + column.color}
+                            key={column.value}
+                          >
+                            {getCellItem(item, column)}
+                          </td>
+                        );
+                      })}
+                    </tr>
                   );
                 })}
-              </tr>
-            </thead>
-            <tbody>
-              {info.map((item) => {
-                return (
-                  <tr key={item._id}>
-                    {columns.map((column) => {
-                      return (
-                        <td
-                          className={"text-" + column.color}
-                          key={column.value}
-                        >
-                          {getCellItem(item, column)}
-                        </td>
-                      );
-                    })}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </Table>
+              </tbody>
+            </Table>
+          </div>
         </>
       )}
     </>

@@ -1,7 +1,7 @@
 import { Row, Col, Image, Container } from "react-bootstrap";
 import homeTeacher from "../images/homeTeacher.png";
+import homePage from "../images/homePage.jpg";
 import Marquee from "react-fast-marquee";
-import Login from "./Login";
 import { Link } from "react-router-dom";
 const Home = ({ user }) => {
   return (
@@ -24,17 +24,64 @@ const Home = ({ user }) => {
               </h1>
             </Marquee>
             {!user ? (
-              <Login />
+              <Row>
+                <Col
+                  md={{ span: 6, offset: 3 }}
+                  style={{
+                    borderBottom: "2px",
+                    background: "transparent",
+                    marginTop: "4rem",
+                    position: "relative",
+                  }}
+                >
+                  <div style={{ zIndex: "100" }}>
+                    <Image src={homePage} className="img-thumbnail mb-0" />
+                  </div>
+                </Col>
+                <Col
+                  md={{ span: 6, offset: 3 }}
+                  style={{
+                    marginTop: "1rem",
+                  }}
+                >
+                  <h6>
+                    Hlw Hope You have a nice Exprience With Our Website..Click
+                    To.
+                    <Link className="btn btn-outline-primary" to="/login">
+                      Login Here
+                    </Link>
+                  </h6>
+                </Col>
+              </Row>
             ) : (
-              <Col md={{ span: 5, offset: 3 }} className="d-block">
-                <h3 className="mt-3rem">
-                  Hi. <span className="fw-bold text-dark">{user.name}</span>
-                </h3>
-
-                <Link className="btn btn-outline-warning" to="/dash">
-                  GoTo Dashboard
-                </Link>
-              </Col>
+              <Row>
+                <Col
+                  md={{ span: 6, offset: 3 }}
+                  style={{
+                    borderBottom: "2px",
+                    background: "transparent",
+                    marginTop: "1rem",
+                  }}
+                >
+                  <div style={{ zIndex: "100" }}>
+                    <Image src={homePage} className="img-thumbnail mb-0" />
+                  </div>
+                </Col>
+                <Col
+                  md={{ span: 6, offset: 3 }}
+                  style={{
+                    marginTop: "1rem",
+                  }}
+                >
+                  <h6>
+                    Hlw <span className="fw-bold text-dark">{user.name}</span>{" "}
+                    Hope You have a nice Exprience With Our Website..Click To.
+                    <Link className="btn btn-outline-warning" to="/dash">
+                      Your Profile
+                    </Link>
+                  </h6>
+                </Col>
+              </Row>
             )}
           </Col>
           <Col md={{ span: 6, offset: 7 }}>

@@ -42,7 +42,9 @@ const Departments = ({ user }) => {
               </>
             )}
           </Row>
-          <DataTable tableName="department" data={dept} columns={columns} />
+          <div className="model-dash">
+            <DataTable tableName="department" data={dept} columns={columns} />
+          </div>
         </>
       )}
     </Container>

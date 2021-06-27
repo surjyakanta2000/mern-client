@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Table, Button } from "react-bootstrap";
+import { Table, Button, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { deleteClass, getClassForDept } from "../../services/classService";
 import { useState, useEffect } from "react";
@@ -25,16 +25,16 @@ const DeptAllClasses = () => {
   };
   return (
     <>
-      <div className="d-flex justify-content-around">
-        <h1>Dept All Classes</h1>
-        <Link
-          className="btn btn-info"
-          to="/class/new"
-          style={{ height: "25%" }}
-        >
-          ADD Class
-        </Link>
-      </div>
+      <Row className="d-flex mt-3 mb-2">
+        <Col sm={8}>
+          <h3>Dept All Classes</h3>
+        </Col>
+        <Col sm={4}>
+          <Link className="btn btn-info text-end" to="/class/new">
+            Add Class
+          </Link>
+        </Col>
+      </Row>
       <Table striped bordered hover>
         <thead>
           <tr>

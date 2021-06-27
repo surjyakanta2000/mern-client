@@ -44,7 +44,9 @@ const Teachers = ({ user }) => {
               </Col>
             )}
           </Row>
-          <DataTable tableName="teacher" data={tech} columns={columns} />
+          <div className="model-dash">
+            <DataTable tableName="teacher" data={tech} columns={columns} />
+          </div>
         </>
       )}
     </Container>

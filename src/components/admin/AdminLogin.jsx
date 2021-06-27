@@ -25,38 +25,48 @@ const AdminLogin = () => {
     }
   };
   return (
-    <Container>
-      <Row className="justify-content-md-center">
-        <Col xs={12} md={6}>
-          <h2 className="text-center">Admin Login</h2>
-          <Form onSubmit={(e) => e.preventDefault()}>
-            {err && err !== "" && err !== undefined && (
-              <div className="text-danger text-center fw-bold">{err}</div>
-            )}
-            <Input
-              label="Email ID"
-              type="email"
-              placeholder="Enter Email"
-              name="email"
-              value={user.email}
-              handleChange={handleChange}
-            />
-            <Input
-              label="Password"
-              type="password"
-              placeholder="Enter Password"
-              name="password"
-              value={user.password}
-              handleChange={handleChange}
-            />
-            <span className="d-flex justify-content-center">
-              <Button onClick={handleSubmit} variant="primary" type="submit">
-                Login
-              </Button>
-            </span>
-          </Form>
-        </Col>
-      </Row>
+    <Container style={{ width: "70%" }}>
+      <div className="model-dash mt-5">
+        <Row className="justify-content-md-center mt-3">
+          <Col xs={12} md={6}>
+            <h2 className="text-center">Admin Login</h2>
+            <Form onSubmit={(e) => e.preventDefault()}>
+              {err && err !== "" && err !== undefined && (
+                <div className="text-danger text-center fw-bold">{err}</div>
+              )}
+              <Input
+                label="Email ID"
+                type="email"
+                className="bg-transparent"
+                placeholder="Enter Email"
+                name="email"
+                value={user.email}
+                handleChange={handleChange}
+              />
+              <Input
+                label="Password"
+                className="bg-transparent"
+                type="password"
+                placeholder="Enter Password"
+                name="password"
+                value={user.password}
+                handleChange={handleChange}
+              />
+              <span className="d-flex justify-content-center">
+                <button
+                  onClick={handleSubmit}
+                  variant="secondary"
+                  type="submit"
+                  style={{ width: "40%" }}
+                  className="btn btn-outline-secondary mt-2 mb-4"
+                >
+                  Login
+                </button>
+              </span>
+            </Form>
+          </Col>
+        </Row>
+      </div>
     </Container>
   );
 };

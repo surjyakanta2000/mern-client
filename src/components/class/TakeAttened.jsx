@@ -71,18 +71,20 @@ const TakeAttened = ({ match }) => {
                 <td>{s.studentRoll}</td>
                 <td>{s.studentName}</td>
                 <td className="d-flex justify-content-around">
-                  <Button onClick={() => handleSubmit(s, "p")}>
-                    <FontAwesomeIcon
-                      className="text-success bg-transparent"
-                      icon={faCheck}
-                    />
-                  </Button>
-                  <Button onClick={() => handleSubmit(s, "a")}>
-                    <FontAwesomeIcon
-                      className="text-danger bg-transparent"
-                      icon={faTimes}
-                    />
-                  </Button>
+                  <button
+                    className="btn border btn-outline-light"
+                    style={{ boder: "1px solid white" }}
+                    onClick={() => handleSubmit(s, "p")}
+                  >
+                    <FontAwesomeIcon className="text-success " icon={faCheck} />
+                  </button>
+                  <button
+                    className="btn border btn-outline-light"
+                    style={{ boder: "1px solid white" }}
+                    onClick={() => handleSubmit(s, "a")}
+                  >
+                    <FontAwesomeIcon className="text-danger" icon={faTimes} />
+                  </button>
                 </td>
               </tr>
             );

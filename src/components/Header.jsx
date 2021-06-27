@@ -38,7 +38,11 @@ const Header = ({ user }) => {
             Student
           </NavLink>
           {!user && (
-            <NavLink to="/login" className="nav-link ">
+            <NavLink
+              to="/login"
+              activeClassName="menu_active"
+              className="nav-link "
+            >
               Login
             </NavLink>
           )}
