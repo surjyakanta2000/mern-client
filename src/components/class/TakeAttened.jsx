@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { Container, Table, Button } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import {
   getSpecClass,
   getStudentForClass,
@@ -35,6 +35,8 @@ const TakeAttened = ({ match }) => {
       clsCode: currentClass._id,
       clsDate: getDate(),
       student: s._id,
+      studentRoll: s.studentRoll,
+      studentName: s.studentName,
       status: key,
       department: s.studentDept,
       semester: s.studentSemester,

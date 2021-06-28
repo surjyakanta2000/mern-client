@@ -1,33 +1,25 @@
 import { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import Input from "../common/Input";
-import { addAssignment } from "../../services/classService";
+import { addNotice } from "../../services/adminService";
 
-const AddAssignment = ({ history, match }) => {
+const AddAssignment = ({ history }) => {
   const [formData, setFormData] = useState("");
-  const [assignment, setAssignment] = useState({
-    assignClass: "",
-    assignName: "",
-    lastDate: "",
-  });
+  const [notice, setNotice] = useState({ noticeName: "" });
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setAssignment({ ...assignment, [name]: value });
+    setNotice({ ...notice, [name]: value });
   };
 
   const Upload = ({ target: { files } }) => {
     let data = new FormData();
-    data.append("assignFile", files[0]);
-    data.append("assignClass", match.params.id);
-    data.append("assignName", assignment.assignName);
-    data.append("lastDate", assignment.lastDate);
+    data.append("noticeFile", files[0]);
+    data.append("noticeName", notice.noticeName);
     setFormData(data);
   };
   const handleSubmit = async () => {
-    console.log(formData);
-
-    await addAssignment(formData);
-    history.push("/dash");
+    await addNotice(formData);
+    history.push("/admin/dash");
   };
 
   return (
@@ -36,21 +28,14 @@ const AddAssignment = ({ history, match }) => {
         <Col xs={12} md={6}>
           <Form onSubmit={(e) => e.preventDefault()}>
             <Input
-              label="Assignment Name"
+              label="Notice Name"
               type="text"
               placeholder="Enter Assignment Name"
-              name="assignName"
-              value={assignment.assignName}
+              name="noticeName"
+              value={notice.noticeName}
               handleChange={handleChange}
             />
-            <Input
-              label="Late Date"
-              type="date"
-              placeholder="Enter Last Name"
-              name="lastDate"
-              value={assignment.lastDate}
-              handleChange={handleChange}
-            />
+
             <Form.Group className="mb-3">
               <Form.Label>Choose an assignment</Form.Label>
               <Form.Control type="file" onChange={Upload} />

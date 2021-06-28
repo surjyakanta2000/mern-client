@@ -48,6 +48,11 @@ export const getAssignments = async (classId) => {
   return data;
 };
 
+export const getAssignment = async (assignId) => {
+  const { data } = await axios.get(API + `/assignment/spec/${assignId}`);
+  return data;
+};
+
 export const deleteAssignment = async (assignId) => {
   await axios.delete(API + `/assignment/delete/${assignId}`);
 };
@@ -64,4 +69,17 @@ export const getResponses = async (id) => {
 export const getAttendForDept = async (id) => {
   const { data } = await axios.get(API + `/attend/all/${id}`);
   return data;
+};
+
+export const getAttendDateWise = async (id) => {
+  const { data } = await axios.get(API + `/attend/allattend/${id}`);
+  return data;
+};
+
+export const addMaterial = async (material) => {
+  await axios.post(API + `/class/material/add`, material);
+};
+
+export const deleteMaterial = async (clsCode, materialId) => {
+  await axios.delete(API + `/class/material/delete/${clsCode}/${materialId}`);
 };

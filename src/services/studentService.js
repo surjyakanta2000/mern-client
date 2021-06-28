@@ -29,3 +29,8 @@ export const getStudentAttend = async (id) => {
 export const updateProfile = async (id, data) => {
   await axios.put(API + `/student/profile/update/${id}`, data);
 };
+
+export const getStudentbyRoll = async (roll) => {
+  const { data } = await axios.get(API + `/student/specStudent/${roll}`);
+  return data;
+};

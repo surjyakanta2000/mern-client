@@ -26,9 +26,17 @@ const ClassDash = ({ match }) => {
         <Col>
           <Link
             className="btn btn-lg btn-outline-primary"
+            to={`/classes/${match.params.id}/studymaterials`}
+          >
+            Study Materials
+          </Link>
+        </Col>
+        <Col>
+          <Link
+            className="btn btn-lg btn-outline-primary"
             to={`/classes/${match.params.id}/attened`}
           >
-            Take Attendance
+            Attendance
           </Link>
         </Col>
         <Col>

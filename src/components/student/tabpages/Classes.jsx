@@ -1,6 +1,6 @@
 import { Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faArrowCircleRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const Classes = ({ classes }) => {
@@ -12,7 +12,7 @@ const Classes = ({ classes }) => {
           <th>Subject Code</th>
           <th>Teacher Name</th>
           <th>Semester</th>
-          <th>Asssignment</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -25,10 +25,10 @@ const Classes = ({ classes }) => {
               <td>{c.clsSemester}</td>
               <td>
                 <Link
-                  className="btn"
-                  to={`/classes/${c._id}/assignment/response`}
+                  className="btn btn-success"
+                  to={`/classes/${c._id}/studentclass`}
                 >
-                  <FontAwesomeIcon icon={faEye} />
+                  Goto Class <FontAwesomeIcon icon={faArrowCircleRight} />
                 </Link>
               </td>
             </tr>

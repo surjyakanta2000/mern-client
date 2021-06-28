@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Table, Container } from "react-bootstrap";
 import { getResponses } from "../../services/classService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDownload, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 const AllResponses = ({ match }) => {
   const [responses, setResponses] = useState([]);
@@ -43,15 +43,6 @@ const AllResponses = ({ match }) => {
                       rel="noreferrer"
                     >
                       <FontAwesomeIcon icon={faEye} />
-                    </a>
-                  </td>
-                  <td>
-                    <a
-                      className="btn btn-success"
-                      href={"http://localhost:8000/" + r.assignFile}
-                      download
-                    >
-                      <FontAwesomeIcon icon={faDownload} />
                     </a>
                   </td>
                 </tr>

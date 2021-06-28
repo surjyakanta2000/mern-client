@@ -5,6 +5,7 @@ import { getDept } from "../../services/deptService";
 import { getTeacher } from "../../services/techService";
 import { getSubject } from "../../services/subService";
 import { getStudent } from "../../services/studentService";
+import { getNotices } from "../../services/adminService";
 
 const AdminDashboard = () => {
   const [counts, setCounts] = useState({
@@ -15,7 +16,13 @@ const AdminDashboard = () => {
   });
   useEffect(() => {
     const getData = async () => {
-      let data = { departments: 0, teachers: 0, subjects: 0, students: 10 };
+      let data = {
+        departments: 0,
+        teachers: 0,
+        subjects: 0,
+        students: 0,
+        notices: 0,
+      };
       let info = await getDept();
       data.departments = info.length;
       info = await getTeacher();
@@ -24,6 +31,8 @@ const AdminDashboard = () => {
       data.subjects = info.length;
       info = await getStudent();
       data.students = info.length;
+      info = await getNotices();
+      data.notices = info.length;
       setCounts(data);
     };
     getData();
@@ -50,6 +59,11 @@ const AdminDashboard = () => {
         <Col>
           <Link className="btn btn-warning btn-lg" to="/students">
             Students <Badge bg="secondary">{counts.students}</Badge>
+          </Link>
+        </Col>
+        <Col>
+          <Link className="btn btn-warning btn-lg" to="/admin/dash/notice">
+            Notice<Badge bg="secondary">{counts.notices}</Badge>
           </Link>
         </Col>
       </Row>

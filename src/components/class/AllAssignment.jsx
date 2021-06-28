@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 const AllAssignents = ({ match }) => {
   const [assignments, setAssignments] = useState([]);
   const [loader, setLoader] = useState(true);
+  // console.log(match.params.id);
   useEffect(() => {
     const getData = async () => {
       const assignments = await getAssignments(match.params.id);

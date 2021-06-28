@@ -1,6 +1,8 @@
 import { Route, Redirect } from "react-router-dom";
 import AdminLogin from "../components/admin/AdminLogin";
 import AdminDashboard from "../components/admin/AdminDashboard";
+import Notice from "../components/admin/Notice";
+import AddNotice from "../components/admin/AddNotice";
 
 const AdminRoutes = ({ user }) => {
   return (
@@ -19,13 +21,18 @@ const AdminRoutes = ({ user }) => {
       <Route
         exact
         path="/admin/dash"
-        render={(props) =>
-          user && user !== undefined && user.role === "admin" ? (
-            <AdminDashboard {...props} />
-          ) : (
-            <Redirect to="/admin/login" />
-          )
-        }
+        render={(props) => <AdminDashboard {...props} />}
+      />
+
+      <Route
+        exact
+        path="/admin/dash/notice"
+        render={(props) => <Notice {...props} />}
+      />
+      <Route
+        exact
+        path="/admin/dash/notice/add"
+        render={(props) => <AddNotice {...props} />}
       />
     </>
   );

@@ -3,7 +3,18 @@ import homeTeacher from "../images/homeTeacher.png";
 import homePage from "../images/homePage.jpg";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { getNotices } from "../services/adminService";
 const Home = ({ user }) => {
+  const [notices, setNotices] = useState([]);
+  useEffect(() => {
+    const getData = async () => {
+      const notices = await getNotices();
+      setNotices(notices);
+    };
+    getData();
+  }, []);
+  console.log(notices);
   return (
     <>
       <Container>
@@ -45,7 +56,7 @@ const Home = ({ user }) => {
                   }}
                 >
                   <h6>
-                    Hlw Hope You have a nice Exprience With Our Website..Click
+                    Hello Hope You have a nice Exprience With Our Website..Click
                     To.
                     <Link className="btn btn-outline-primary" to="/login">
                       Login Here
@@ -74,7 +85,7 @@ const Home = ({ user }) => {
                   }}
                 >
                   <h6>
-                    Hlw <span className="fw-bold text-dark">{user.name}</span>{" "}
+                    Hello <span className="fw-bold text-dark">{user.name}</span>{" "}
                     Hope You have a nice Exprience With Our Website..Click To.
                     <Link className="btn btn-outline-warning" to="/dash">
                       Your Profile

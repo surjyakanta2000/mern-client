@@ -1,31 +1,36 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { getAssignments, getStudentRes } from "../../services/classService";
+import { getAssignment, getStudentRes } from "../../services/classService";
 import Input from "../common/Input";
 import Loader from "../common/Loader";
 
-const StudentAssign = ({ match, history, user }) => {
+const StudentAssign = ({ match, history }) => {
   const [assign, setAssign] = useState({
     assignClass: "",
     assignName: "",
     assignFile: "",
+    assignDate: "",
+    lastDate: "",
   });
-  const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(false);
   const [formData, setFormData] = useState("");
   const [studentAssign, setStudentAssign] = useState({
     studentRoll: "",
     studentName: "",
     studentEmail: "",
     assignId: "",
+    dateOfSub: "",
   });
 
   useEffect(() => {
     const getData = async () => {
-      const assignment = await getAssignments(match.params.id);
+      const assignment = await getAssignment(match.params.id);
+      assign.assignDate = assignment.assignDate;
+      assign.lastDate = assignment.lastDate;
 
-      setAssign(assignment[0]);
-      if (assignment[0] !== undefined) {
-        studentAssign.assignId = assignment[0]._id;
+      setAssign(assignment);
+      if (assignment !== undefined) {
+        studentAssign.assignId = assignment._id;
       }
       setLoader(false);
     };
@@ -44,6 +49,8 @@ const StudentAssign = ({ match, history, user }) => {
     data.append("studentRoll", studentAssign.studentRoll);
     data.append("studentName", studentAssign.studentName);
     data.append("studentEmail", studentAssign.studentEmail);
+    data.append("lastDate", assign.lastDate);
+    data.append("dateOfSub", new Date().toISOString().slice(0, 10));
     setFormData(data);
   };
   const handleSubmit = async () => {
@@ -87,6 +94,10 @@ const StudentAssign = ({ match, history, user }) => {
                     View
                   </a>
                 </Col>
+              </Row>
+              <Row>
+                <Col>Assignment Date: {assign.assignDate}</Col>
+                <Col>Last Date: {assign.lastDate}</Col>
               </Row>
               <Row>
                 <Col xs={12} md={6}>
