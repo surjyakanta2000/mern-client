@@ -27,6 +27,14 @@ const AddSubject = ({ history }) => {
 
   return (
     <Container>
+      <h1
+        style={{
+          color: "#5effe2",
+          textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+        }}
+      >
+        Add Subject
+      </h1>
       <Form onSubmit={(e) => e.preventDefault()}>
         {err && err !== "" && err !== undefined && (
           <div className="text-danger text-center fw-bold">{err}</div>
@@ -34,6 +42,7 @@ const AddSubject = ({ history }) => {
         <Input
           label="Subject Code"
           type="text"
+          className="bg-transparent text-white"
           placeholder="Enter Subject Code"
           name="subCode"
           value={sub.subCode}
@@ -42,6 +51,7 @@ const AddSubject = ({ history }) => {
         <Input
           label="Subject Name"
           type="text"
+          className="bg-transparent text-white"
           placeholder="Enter subject name"
           name="subName"
           value={sub.subName}
@@ -57,9 +67,16 @@ const AddSubject = ({ history }) => {
           value={sub.subSemester}
           name="subSemester"
         />
-        <Button onClick={handleSubmit} variant="primary" type="submit">
-          Add
-        </Button>
+        <div className="d-flex justify-content-center">
+          <Button
+            style={{ width: "30%" }}
+            onClick={handleSubmit}
+            className="custom-btn mt-4"
+            type="submit"
+          >
+            Add
+          </Button>
+        </div>
       </Form>
     </Container>
   );

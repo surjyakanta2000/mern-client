@@ -39,6 +39,7 @@ const AddStudent = ({ history }) => {
           label="Student Roll"
           type="text"
           placeholder="Enter Roll"
+          className="bg-transparent text-white"
           name="studentRoll"
           value={student.studentRoll}
           handleChange={handleChange}
@@ -47,6 +48,7 @@ const AddStudent = ({ history }) => {
           label="Student Name"
           type="text"
           placeholder="Enter Name"
+          className="bg-transparent text-white"
           name="studentName"
           value={student.studentName}
           handleChange={handleChange}
@@ -65,6 +67,7 @@ const AddStudent = ({ history }) => {
           label="Student Email"
           type="email"
           placeholder="Enter Email"
+          className="bg-transparent text-white"
           name="studentEmail"
           value={student.studentEmail}
           handleChange={handleChange}
@@ -73,6 +76,7 @@ const AddStudent = ({ history }) => {
           label="Student Phone"
           type="text"
           placeholder="Enter Phone"
+          className="bg-transparent text-white"
           name="studentPhone"
           value={student.studentPhone}
           handleChange={handleChange}
@@ -80,15 +84,24 @@ const AddStudent = ({ history }) => {
         <Input
           label="Student Password"
           type="password"
+          className="bg-transparent text-white"
           placeholder="Enter Password"
           name="studentPassword"
           value={student.studentPassword}
           handleChange={handleChange}
         />
-
-        <Button onClick={handleSubmit} variant="primary" type="submit">
-          Add
-        </Button>
+        <div className="d-flex justify-content-center">
+          <Button
+            style={{
+              width: "30%",
+            }}
+            onClick={handleSubmit}
+            className="btn custom-btn btn-lg mt-4"
+            type="submit"
+          >
+            Add
+          </Button>
+        </div>
       </Form>
     </Container>
   );

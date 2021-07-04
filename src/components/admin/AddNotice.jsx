@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { Form, Container, Row, Col } from "react-bootstrap";
 import Input from "../common/Input";
 import { addNotice } from "../../services/adminService";
 
@@ -24,25 +24,54 @@ const AddAssignment = ({ history }) => {
 
   return (
     <Container>
+      <div className="d-flex justify-content-md-center">
+        <h1
+          style={{
+            color: "#5effe2",
+            textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+          }}
+        >
+          Add Notice
+        </h1>
+      </div>
+      <hr
+        style={{
+          color: "#5effe2",
+          height: "3px",
+        }}
+      ></hr>
       <Row className="justify-content-md-center">
         <Col xs={12} md={6}>
           <Form onSubmit={(e) => e.preventDefault()}>
             <Input
               label="Notice Name"
               type="text"
-              placeholder="Enter Assignment Name"
+              placeholder="Enter Notice Name"
+              className="bg-transparent text-white"
               name="noticeName"
               value={notice.noticeName}
               handleChange={handleChange}
             />
 
             <Form.Group className="mb-3">
-              <Form.Label>Choose an assignment</Form.Label>
+              <Form.Label
+                style={{
+                  color: "#5effe2",
+                  textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+                }}
+              >
+                Choose a Notice
+              </Form.Label>
               <Form.Control type="file" onChange={Upload} />
             </Form.Group>
-            <Button onClick={handleSubmit} variant="primary" type="submit">
+            <button
+              onClick={handleSubmit}
+              variant="primary"
+              className="btn custom-btn"
+              type="submit"
+            >
               Submit
-            </Button>
+            </button>
           </Form>
         </Col>
       </Row>

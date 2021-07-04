@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Container } from "react-bootstrap";
 import { addDept } from "../../services/deptService";
 import Input from "../common/Input";
 
@@ -22,6 +22,14 @@ const AddDept = ({ history }) => {
 
   return (
     <Container>
+      <h1
+        style={{
+          color: "#5effe2",
+          textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+        }}
+      >
+        Add Department
+      </h1>
       <Form onSubmit={(e) => e.preventDefault()}>
         {err && err !== "" && err !== undefined && (
           <div className="text-danger text-center fw-bold">{err}</div>
@@ -30,6 +38,7 @@ const AddDept = ({ history }) => {
           label="Department Code"
           type="text"
           placeholder="Enter Code"
+          className="bg-transparent text-white"
           name="deptCode"
           value={dept.deptCode}
           handleChange={handleChange}
@@ -38,13 +47,22 @@ const AddDept = ({ history }) => {
           label="Department name"
           type="text"
           placeholder="Enter Name"
+          className="bg-transparent text-white"
           name="deptName"
           value={dept.deptName}
           handleChange={handleChange}
         />
-        <Button onClick={handleSubmit} variant="primary" type="submit">
-          Submit
-        </Button>
+        <div className="d-flex justify-content-center">
+          <button
+            style={{ width: "30%" }}
+            onClick={handleSubmit}
+            variant="primary"
+            className="btn custom-btn mt-4"
+            type="submit"
+          >
+            Add
+          </button>
+        </div>
       </Form>
     </Container>
   );

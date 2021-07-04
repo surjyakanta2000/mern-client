@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Container } from "react-bootstrap";
 import { getSpecSubject, updateSubject } from "../../services/subService";
 import Input from "../common/Input";
 import InputDept from "../common/InputDept";
@@ -39,6 +39,14 @@ const EditSubject = ({ history, match }) => {
   };
   return (
     <Container>
+      <h1
+        style={{
+          color: "#5effe2",
+          textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+        }}
+      >
+        Update Teacher
+      </h1>
       <Form onSubmit={(e) => e.preventDefault()}>
         {err && err !== "" && err !== undefined && (
           <div className="text-danger text-center fw-bold">{err}</div>
@@ -47,6 +55,7 @@ const EditSubject = ({ history, match }) => {
           label="Subject Code"
           type="text"
           placeholder="Enter Subject Code"
+          className="bg-transparent text-white"
           name="subCode"
           value={sub.subCode}
           handleChange={handleChange}
@@ -55,6 +64,7 @@ const EditSubject = ({ history, match }) => {
           label="Subject Name"
           type="text"
           placeholder="Enter subject name"
+          className="bg-transparent text-white"
           name="subName"
           value={sub.subName}
           handleChange={handleChange}
@@ -69,9 +79,17 @@ const EditSubject = ({ history, match }) => {
           value={sub.subSemester}
           name="subSemester"
         />
-        <Button onClick={handleSubmit} variant="primary" type="submit">
-          Update
-        </Button>
+        <div className="d-flex justify-content-center">
+          <button
+            style={{ width: "30%" }}
+            onClick={handleSubmit}
+            variant="primary"
+            className="btn custom-btn mt-4"
+            type="submit"
+          >
+            Add
+          </button>
+        </div>
       </Form>
     </Container>
   );

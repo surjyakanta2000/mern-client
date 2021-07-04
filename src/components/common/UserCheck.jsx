@@ -72,7 +72,15 @@ const UserCheck = ({ history }) => {
     <Container>
       <Row className="justify-content-md-center">
         <Col xs={12} md={6}>
-          <h1 className="text-center fw-bold">Check User</h1>
+          <h1
+            className="text-center fw-bold"
+            style={{
+              color: "#5effe2",
+              textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+            }}
+          >
+            Check User
+          </h1>
           <hr></hr>
           <Form onSubmit={(e) => e.preventDefault()}>
             {err && err !== "" && err !== undefined && (
@@ -88,9 +96,23 @@ const UserCheck = ({ history }) => {
               handleChange={handleChange}
               disabled={userFound}
             />
-            <Form.Group className="mb-1 ml-2" hidden={userFound}>
+            <Form.Group
+              className="mb-1 ml-2"
+              style={{
+                color: "#5effe2",
+              }}
+              hidden={userFound}
+            >
               <Form.Label>
-                <h5>Choose Role</h5>
+                <h5
+                  style={{
+                    color: "#5effe2",
+                    textShadow:
+                      "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                  }}
+                >
+                  Choose Role :-
+                </h5>
                 <span></span>
               </Form.Label>
               <Form.Check
@@ -133,7 +155,7 @@ const UserCheck = ({ history }) => {
             <span className="d-flex justify-content-center mt-2">
               <button
                 onClick={userFound === false ? emailCheck : securityCheck}
-                className="btn btn-outline-dark"
+                className="btn custom-btn"
                 type="submit"
                 style={{ width: "40%" }}
               >

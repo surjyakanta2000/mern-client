@@ -44,10 +44,20 @@ const AddMaterial = ({ history, match }) => {
       <Row className="justify-content-md-center">
         <Col xs={12} md={6}>
           <Form onSubmit={(e) => e.preventDefault()}>
-            <h2 className="text-center">Add Material</h2>
+            <h2
+              className="text-center"
+              style={{
+                color: "#5effe2",
+                textShadow:
+                  "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+              }}
+            >
+              Add Material
+            </h2>
             <Input
               label="Material Name"
               type="text"
+              className="bg-transparent text-white"
               placeholder="Enter Material Name"
               name="materialName"
               value={material.materialName}
@@ -69,6 +79,7 @@ const AddMaterial = ({ history, match }) => {
             <Input
               label="Material Link"
               type="text"
+              className="bg-transparent text-white"
               placeholder="Enter Material Link"
               name="material"
               value={material.material}
@@ -79,9 +90,17 @@ const AddMaterial = ({ history, match }) => {
               <Form.Label>Choose a File</Form.Label>
               <Form.Control type="file" onChange={Upload} />
             </Form.Group>
-            <Button onClick={handleSubmit} variant="primary" type="submit">
-              Submit
-            </Button>
+            <div className="d-flex justify-content-center">
+              <button
+                style={{ width: "30%" }}
+                onClick={handleSubmit}
+                variant="primary"
+                className="btn custom-btn mt-2"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
           </Form>
         </Col>
       </Row>

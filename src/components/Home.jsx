@@ -1,20 +1,10 @@
 import { Row, Col, Image, Container } from "react-bootstrap";
 import homeTeacher from "../images/homeTeacher.png";
-import homePage from "../images/homePage.jpg";
+import homePage1 from "../images/homePage1.jpg";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { getNotices } from "../services/adminService";
+
 const Home = ({ user }) => {
-  const [notices, setNotices] = useState([]);
-  useEffect(() => {
-    const getData = async () => {
-      const notices = await getNotices();
-      setNotices(notices);
-    };
-    getData();
-  }, []);
-  console.log(notices);
   return (
     <>
       <Container>
@@ -31,7 +21,15 @@ const Home = ({ user }) => {
           >
             <Marquee width="100%" speed="50">
               <h1 className="text-dark fw-bold">
-                Welcome to <span className="text-warning">E-Learning..</span>
+                Welcome to{" "}
+                <span
+                  style={{
+                    color: "#5effe2",
+                    textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+                  }}
+                >
+                  LMS{" "}
+                </span>
               </h1>
             </Marquee>
             {!user ? (
@@ -46,7 +44,7 @@ const Home = ({ user }) => {
                   }}
                 >
                   <div style={{ zIndex: "100" }}>
-                    <Image src={homePage} className="img-thumbnail mb-0" />
+                    <Image src={homePage1} className="img-thumbnail mb-0" />
                   </div>
                 </Col>
                 <Col
@@ -55,13 +53,29 @@ const Home = ({ user }) => {
                     marginTop: "1rem",
                   }}
                 >
-                  <h6>
-                    Hello Hope You have a nice Exprience With Our Website..Click
-                    To.
+                  <h6
+                    style={{
+                      color: "#5effe2",
+                      textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+                    }}
+                  >
+                    Hello User Hope You have a nice Exprience With Our
+                    Website..Click To.
                     <Link className="btn btn-outline-primary" to="/login">
                       Login Here
                     </Link>
                   </h6>
+                </Col>
+                <Col md={{ span: 3, offset: 3 }}>
+                  <Link to="/notice">
+                    <h4
+                      style={{
+                        color: "white",
+                      }}
+                    >
+                      Notice
+                    </h4>
+                  </Link>
                 </Col>
               </Row>
             ) : (
@@ -75,7 +89,7 @@ const Home = ({ user }) => {
                   }}
                 >
                   <div style={{ zIndex: "100" }}>
-                    <Image src={homePage} className="img-thumbnail mb-0" />
+                    <Image src={homePage1} className="img-thumbnail mb-0" />
                   </div>
                 </Col>
                 <Col
@@ -84,13 +98,39 @@ const Home = ({ user }) => {
                     marginTop: "1rem",
                   }}
                 >
-                  <h6>
-                    Hello <span className="fw-bold text-dark">{user.name}</span>{" "}
+                  <h6
+                    style={{
+                      color: "#5effe2",
+                    }}
+                  >
+                    Hello{" "}
+                    <span
+                      className="fw-bold"
+                      style={{
+                        color: "#5effe2",
+                        textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+                      }}
+                    >
+                      {user.name}
+                    </span>{" "}
                     Hope You have a nice Exprience With Our Website..Click To.
                     <Link className="btn btn-outline-warning" to="/dash">
                       Your Profile
                     </Link>
                   </h6>
+                </Col>
+                <Col md={{ span: 3, offset: 3 }}>
+                  <Link to="/notice">
+                    <h4
+                      style={{
+                        color: "white",
+                        textShadow:
+                          "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                      }}
+                    >
+                      Notice
+                    </h4>
+                  </Link>
                 </Col>
               </Row>
             )}

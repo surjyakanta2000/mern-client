@@ -32,7 +32,15 @@ const Resetpassword = ({ match, history }) => {
     <Container>
       <Row className="justify-content-md-center">
         <Col xs={12} md={6}>
-          <h1 className="text-center fw-bold">Reset Password</h1>
+          <h1
+            className="text-center fw-bold"
+            style={{
+              color: "#5effe2",
+              textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+            }}
+          >
+            Reset Password
+          </h1>
           <hr></hr>
           <Form onSubmit={(e) => e.preventDefault()}>
             {err && err !== "" && err !== undefined && (
@@ -40,7 +48,7 @@ const Resetpassword = ({ match, history }) => {
             )}
             <Input
               label="Password"
-              className="bg-transparent"
+              className="bg-transparent text-white"
               type="password"
               placeholder="Enter Password"
               name="password"
@@ -49,7 +57,7 @@ const Resetpassword = ({ match, history }) => {
             />
             <Input
               label="Confirm Password"
-              className="bg-transparent"
+              className="bg-transparent text-white"
               type="password"
               placeholder="Confirm Password"
               name="cpassword"

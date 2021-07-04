@@ -1,6 +1,14 @@
 import { useState, useEffect } from "react";
-import { Container, Row, Col, Badge } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container, Row } from "react-bootstrap";
+
+import {
+  faChalkboardTeacher,
+  faUserGraduate,
+  faBookOpen,
+  faUniversity,
+  faExclamationCircle,
+} from "@fortawesome/free-solid-svg-icons";
+import DashIcon from "../common/DashIcon";
 import { getDept } from "../../services/deptService";
 import { getTeacher } from "../../services/techService";
 import { getSubject } from "../../services/subService";
@@ -39,34 +47,61 @@ const AdminDashboard = () => {
   }, []);
   return (
     <Container>
-      <h2>Admin Dashboard</h2>
-      <Row>
-        <Col>
-          <Link className="btn btn-primary btn-lg" to="/departments">
-            Departments <Badge bg="secondary">{counts.departments}</Badge>
-          </Link>
-        </Col>
-        <Col>
-          <Link className="btn btn-success btn-lg" to="/teachers">
-            Teachers <Badge bg="secondary">{counts.teachers}</Badge>
-          </Link>
-        </Col>
-        <Col>
-          <Link className="btn btn-info btn-lg" to="/subjects">
-            Subjects <Badge bg="secondary">{counts.subjects}</Badge>
-          </Link>
-        </Col>
-        <Col>
-          <Link className="btn btn-warning btn-lg" to="/students">
-            Students <Badge bg="secondary">{counts.students}</Badge>
-          </Link>
-        </Col>
-        <Col>
-          <Link className="btn btn-warning btn-lg" to="/admin/dash/notice">
-            Notice<Badge bg="secondary">{counts.notices}</Badge>
-          </Link>
-        </Col>
-      </Row>
+      <div className="model-dash mt-4">
+        <h2
+          className="d-flex justify-content-center mt-3"
+          style={{
+            color: "#5effe2",
+            textShadow: "1px 1px 2px black, 0 0 25px black, 0 0 5px darkblue",
+          }}
+        >
+          Admin Dashboard
+        </h2>
+        <hr
+          style={{
+            color: "#5effe2",
+            height: "3px",
+          }}
+        ></hr>
+        <Row className="mb-4 mt-3 d-flex justify-content-center">
+          <DashIcon
+            label="Departments"
+            count={counts.departments}
+            path="/departments"
+            icon={faUniversity}
+            bgColor="primary"
+          />
+
+          <DashIcon
+            label="Teachers"
+            count={counts.teachers}
+            path="/teachers"
+            icon={faChalkboardTeacher}
+            bgColor="success"
+          />
+          <DashIcon
+            label="Subjects"
+            count={counts.subjects}
+            path="/subjects"
+            icon={faBookOpen}
+            bgColor="info"
+          />
+          <DashIcon
+            label="Students"
+            count={counts.students}
+            path="/students"
+            icon={faUserGraduate}
+            bgColor="warning"
+          />
+          <DashIcon
+            label="Notices"
+            count={counts.notices}
+            path="/admin/dash/notice"
+            icon={faExclamationCircle}
+            bgColor="dark"
+          />
+        </Row>
+      </div>
     </Container>
   );
 };

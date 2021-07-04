@@ -8,6 +8,7 @@ import ProfileUpdate from "../components/student/ProfileUpdate";
 import TechProfileUpdate from "../components/teacher/TechProfileUpdate";
 import UserCheck from "../components/common/UserCheck";
 import Resetpassword from "../components/common/ResetPassword";
+import Notice from "../components/Notice";
 
 const UserRoutes = ({ user }) => {
   return (
@@ -59,6 +60,7 @@ const UserRoutes = ({ user }) => {
           }
         }}
       />
+      <Route exact path="/notice" component={Notice} />
     </>
   );
 };

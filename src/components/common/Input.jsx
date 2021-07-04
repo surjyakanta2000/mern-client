@@ -11,9 +11,16 @@ const Input = ({
   disabled,
 }) => {
   return (
-    <Form.Group className="mb-1 bg-tranparent" hidden={hidden}>
+    <Form.Group className="mb-1 bg-tranparent text-white" hidden={hidden}>
       <Form.Label>
-        <h5>{label}</h5>
+        <h5
+          style={{
+            color: "#5effe2",
+            textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+          }}
+        >
+          {label}
+        </h5>
       </Form.Label>
       <Form.Control
         className={className}

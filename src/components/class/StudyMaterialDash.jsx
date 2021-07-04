@@ -32,13 +32,29 @@ const StudyMaterials = ({ match }) => {
         <Container>
           <Row>
             <Col>
-              <h3>Welcome To Class</h3>
+              <h3
+                style={{
+                  color: "#5effe2",
+                  textShadow:
+                    "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                }}
+              >
+                Welcome To Class
+              </h3>
             </Col>
             <Col>
-              <h3>{cls.clsName}</h3>
+              <h3
+                style={{
+                  color: "#5effe2",
+                  textShadow:
+                    "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                }}
+              >
+                {cls.clsName}
+              </h3>
             </Col>
           </Row>
-          <Row>
+          <Row className="mb-2">
             <Col>
               <Link
                 className="btn btn-lg btn-outline-primary"
@@ -51,7 +67,13 @@ const StudyMaterials = ({ match }) => {
           <Row>
             <Table striped bordered hover responsive>
               <thead>
-                <tr>
+                <tr
+                  style={{
+                    color: "#5effe2",
+                    textShadow:
+                      "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                  }}
+                >
                   <th>Material</th>
                   <th>Date</th>
                   <th>Action</th>
@@ -60,7 +82,12 @@ const StudyMaterials = ({ match }) => {
               <tbody>
                 {cls.clsMaterials.map((c, i) => {
                   return (
-                    <tr key={i}>
+                    <tr
+                      key={i}
+                      style={{
+                        color: "white",
+                      }}
+                    >
                       <td>{c.materialName}</td>
                       <td>{c.date}</td>
                       <td>

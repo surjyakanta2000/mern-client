@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Form, Button, Col, Row } from "react-bootstrap";
+import { Container, Form, Col, Row } from "react-bootstrap";
 import { getSpecTeacher, updateProfile } from "../../services/techService";
 import Input from "../common/Input";
 import InputDept from "../common/InputDept";
@@ -58,117 +58,159 @@ const TechProfileUpdate = ({ match, history }) => {
         <Container>
           <Row>
             <Col md={{ span: 6, offset: 3 }}>
-              <h1>Update Profile</h1>
+              <h3
+                style={{
+                  color: "#5effe2",
+                  textShadow:
+                    "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                }}
+              >
+                Update Profile
+              </h3>
               <Form onSubmit={(e) => e.preventDefault()} className="Form-Input">
-                <Input
-                  label="Teacher Name"
-                  type="text"
-                  placeholder="Enter Name"
-                  name="techName"
-                  value={tech.techName}
-                  handleChange={handleChange}
-                />
-                <InputDept
-                  handleChange={handleChange}
-                  value={tech.techDept}
-                  name="techDept"
-                />
-                <Input
-                  label="Teacher Email"
-                  type="email"
-                  placeholder="Enter Email"
-                  name="techEmail"
-                  value={tech.techEmail}
-                  handleChange={handleChange}
-                />
-                <Input
-                  label="Teacher Phone"
-                  type="text"
-                  placeholder="Enter Phone"
-                  name="techPhone"
-                  value={tech.techPhone}
-                  handleChange={handleChange}
-                />
-                <Input
-                  label="Teacher Password"
-                  type="password"
-                  placeholder="Enter Password"
-                  name="techPassword"
-                  value={tech.techPassword}
-                  handleChange={handleChange}
-                />
-                <Input
-                  label="Teacher Address"
-                  type="text"
-                  placeholder="Enter Address"
-                  name="techAddress"
-                  value={tech.techAddress}
-                  handleChange={handleChange}
-                />
-                <Input
-                  label="DOB"
-                  type="text"
-                  placeholder="DD/MM/YYYY"
-                  name="techDOB"
-                  value={tech.techDOB}
-                  handleChange={handleChange}
-                />
-                <Input
-                  label="Age"
-                  type="text"
-                  placeholder="Enter Age"
-                  name="techAge"
-                  value={tech.techAge}
-                  handleChange={handleChange}
-                />
-                <Input
-                  label="Gender"
-                  type="text"
-                  placeholder="Enter Gender"
-                  name="techGender"
-                  value={tech.techGender}
-                  handleChange={handleChange}
-                />
-                <Input
-                  label="Teacher Role"
-                  type="text"
-                  placeholder="Enter Role"
-                  name="role"
-                  value={tech.role}
-                  handleChange={handleChange}
-                  hidden
-                />
-                <Input
-                  label="Enter a Security Question"
-                  type="text"
-                  placeholder="Enter Question"
-                  name="securityQuestion"
-                  value={tech.securityQuestion}
-                  handleChange={handleChange}
-                />
-                <Input
-                  label="Enter your security Answer"
-                  type="text"
-                  placeholder="Enter Answer"
-                  name="securityAnswer"
-                  value={tech.securityAnswer}
-                  handleChange={handleChange}
-                />
-
-                <Form.Group className="mb-3">
-                  <Form.Label>Choose a Passport Size Photo</Form.Label>
-                  <Form.Control type="file" onChange={Upload} />
-                </Form.Group>
+                <Col>
+                  <Input
+                    label="Teacher Name"
+                    type="text"
+                    placeholder="Enter Name"
+                    className="bg-transparent text-white"
+                    name="techName"
+                    value={tech.techName}
+                    handleChange={handleChange}
+                  />
+                  <InputDept
+                    handleChange={handleChange}
+                    value={tech.techDept}
+                    name="techDept"
+                  />
+                  <Input
+                    label="Teacher Email"
+                    type="email"
+                    placeholder="Enter Email"
+                    className="bg-transparent text-white"
+                    name="techEmail"
+                    value={tech.techEmail}
+                    handleChange={handleChange}
+                  />
+                  <Input
+                    label="Teacher Phone"
+                    type="text"
+                    placeholder="Enter Phone"
+                    className="bg-transparent text-white"
+                    name="techPhone"
+                    value={tech.techPhone}
+                    handleChange={handleChange}
+                  />
+                  <Input
+                    label="Teacher Password"
+                    type="password"
+                    placeholder="Enter Password"
+                    className="bg-transparent text-white"
+                    name="techPassword"
+                    value={tech.techPassword}
+                    handleChange={handleChange}
+                    hidden
+                  />
+                </Col>
+                <Row>
+                  <Col md={{ span: 6, offset: 0 }}>
+                    <Input
+                      label="Teacher Address"
+                      type="text"
+                      placeholder="Enter Address"
+                      className="bg-transparent text-white"
+                      name="techAddress"
+                      value={tech.techAddress}
+                      handleChange={handleChange}
+                    />
+                  </Col>
+                  <Col md={{ span: 4, offset: 2 }}>
+                    <Input
+                      label="DOB"
+                      type="date"
+                      name="techDOB"
+                      className="bg-transparent text-white"
+                      value={tech.techDOB}
+                      handleChange={handleChange}
+                    />
+                  </Col>
+                  <Col md={{ span: 6, offset: 0 }}>
+                    <Input
+                      label="Age"
+                      type="text"
+                      placeholder="Enter Age"
+                      className="bg-transparent text-white"
+                      name="techAge"
+                      value={tech.techAge}
+                      handleChange={handleChange}
+                    />
+                  </Col>
+                  <Col md={{ span: 4, offset: 2 }}>
+                    <Input
+                      label="Gender"
+                      type="text"
+                      placeholder="Enter Gender"
+                      className="bg-transparent text-white"
+                      name="techGender"
+                      value={tech.techGender}
+                      handleChange={handleChange}
+                    />
+                  </Col>
+                  <Input
+                    label="Teacher Role"
+                    type="text"
+                    placeholder="Enter Role"
+                    className="bg-transparent text-white"
+                    name="role"
+                    value={tech.role}
+                    handleChange={handleChange}
+                    hidden
+                  />
+                  <Col md={{ span: 6, offset: 0 }}>
+                    <Input
+                      label="Enter a Security Question"
+                      className="bg-transparent text-white"
+                      type="text"
+                      placeholder="Enter Question"
+                      name="securityQuestion"
+                      value={tech.securityQuestion}
+                      handleChange={handleChange}
+                    />
+                  </Col>
+                  <Col md={{ span: 6, offset: 0 }}>
+                    <Input
+                      label="Enter your security Answer"
+                      className="bg-transparent text-white"
+                      type="text"
+                      placeholder="Enter Answer"
+                      name="securityAnswer"
+                      value={tech.securityAnswer}
+                      handleChange={handleChange}
+                    />
+                  </Col>
+                  <Form.Group className="mb-3">
+                    <Form.Label
+                      style={{
+                        color: "#5effe2",
+                        textShadow:
+                          "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                      }}
+                    >
+                      Choose a Passport Size Photo
+                    </Form.Label>
+                    <Form.Control type="file" onChange={Upload} />
+                  </Form.Group>
+                </Row>
                 <div className="d-flex justify-content-center">
-                  <Button
-                    className="btn text-white"
-                    style={{ width: "40%", marginBottom: "1rem" }}
+                  <button
+                    style={{ width: "30%" }}
                     onClick={handleSubmit}
-                    variant="success"
+                    variant="primary"
+                    className="btn custom-btn mt-2"
                     type="submit"
                   >
                     Update
-                  </Button>
+                  </button>
                 </div>
               </Form>
             </Col>

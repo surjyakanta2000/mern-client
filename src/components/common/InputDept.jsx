@@ -12,7 +12,14 @@ const InputDept = ({ name, value, handleChange }) => {
   }, []);
   return (
     <Form.Group className="mb-1 input-form">
-      <Form.Label>Department</Form.Label>
+      <Form.Label
+        style={{
+          color: "#5effe2",
+          textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+        }}
+      >
+        Department
+      </Form.Label>
       <Form.Control as="select" name={name} onChange={handleChange}>
         {value === "" ? (
           <option value="">Select Department</option>

@@ -45,7 +45,14 @@ const AllAttendance = ({ attendanceList }) => {
   return (
     <>
       <div className="d-flex justify-content-around">
-        <h2>Attendance Report</h2>
+        <h2
+          style={{
+            color: "#5effe2",
+            textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+          }}
+        >
+          Attendance Report
+        </h2>
         <button
           className="btn btn-warning"
           onClick={handleExport}
@@ -61,7 +68,12 @@ const AllAttendance = ({ attendanceList }) => {
       </form>
       <Table className="mt-2">
         <thead>
-          <tr>
+          <tr
+            style={{
+              color: "#5effe2",
+              textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+            }}
+          >
             {columns.map((column) => {
               return (
                 <th
@@ -83,7 +95,12 @@ const AllAttendance = ({ attendanceList }) => {
         <tbody>
           {attendance.map((a, i) => {
             return (
-              <tr key={i}>
+              <tr
+                key={i}
+                style={{
+                  color: "white",
+                }}
+              >
                 <td>{a.student.studentRoll}</td>
                 <td>{a.student.studentName}</td>
                 <td>{a.attended}</td>

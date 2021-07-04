@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Container } from "react-bootstrap";
 import {
   getSubForDept,
   getSpecClass,
@@ -52,24 +52,46 @@ const EditClass = ({ history, match }) => {
   };
   return (
     <Container>
-      <h2>Update Class</h2>
+      <h2
+        style={{
+          color: "#5effe2",
+          textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+        }}
+      >
+        Update Class
+      </h2>
       <Form onSubmit={(e) => e.preventDefault()}>
         <Input
           label="Class Name"
           type="text"
           placeholder="Enter Class Name"
+          className="bg-transparent text-white"
           name="clsName"
           value={cls.clsName}
           handleChange={handleChange}
         />
         <Form.Group className="mb-1">
-          <Form.Label>Department</Form.Label>
+          <Form.Label
+            style={{
+              color: "#5effe2",
+              textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+            }}
+          >
+            Department
+          </Form.Label>
           <Form.Control as="select" name="clsDept" onChange={handleChange}>
             <option value={cls.clsDept}>{user.deptName}</option>
           </Form.Control>
         </Form.Group>
         <Form.Group className="mb-1">
-          <Form.Label>Subject</Form.Label>
+          <Form.Label
+            style={{
+              color: "#5effe2",
+              textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+            }}
+          >
+            Subject
+          </Form.Label>
           <Form.Control as="select" name="clsSubject" onChange={handleChange}>
             {cls.clsSubject === "" ? (
               <option value="">Select Subject</option>
@@ -89,7 +111,14 @@ const EditClass = ({ history, match }) => {
           </Form.Control>
         </Form.Group>
         <Form.Group className="mb-1">
-          <Form.Label>Teacher</Form.Label>
+          <Form.Label
+            style={{
+              color: "#5effe2",
+              textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+            }}
+          >
+            Teacher
+          </Form.Label>
           <Form.Control as="select" name="clsTeacher" onChange={handleChange}>
             {cls.clsTeacher === "" ? (
               <option value="">Select Teacher</option>
@@ -112,9 +141,17 @@ const EditClass = ({ history, match }) => {
           value={cls.clsSemester}
           handleChange={handleChange}
         />
-        <Button onClick={handleSubmit} variant="primary" type="submit">
-          Update
-        </Button>
+        <div className="d-flex justify-content-center">
+          <button
+            style={{ width: "30%" }}
+            onClick={handleSubmit}
+            variant="primary"
+            className="btn custom-btn mt-4"
+            type="submit"
+          >
+            Update
+          </button>
+        </div>
       </Form>
     </Container>
   );

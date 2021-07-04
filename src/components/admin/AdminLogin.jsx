@@ -29,7 +29,16 @@ const AdminLogin = () => {
       <div className="model-dash mt-5">
         <Row className="justify-content-md-center mt-3">
           <Col xs={12} md={6}>
-            <h2 className="text-center">Admin Login</h2>
+            <h2
+              className="text-center"
+              style={{
+                color: "#5effe2",
+                textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+              }}
+            >
+              Admin Login
+            </h2>
+            <hr style={{ height: "3px", color: "#5effe2" }}></hr>
             <Form onSubmit={(e) => e.preventDefault()}>
               {err && err !== "" && err !== undefined && (
                 <div className="text-danger text-center fw-bold">{err}</div>
@@ -37,7 +46,7 @@ const AdminLogin = () => {
               <Input
                 label="Email ID"
                 type="email"
-                className="bg-transparent"
+                className="bg-transparent text-white"
                 placeholder="Enter Email"
                 name="email"
                 value={user.email}
@@ -45,7 +54,7 @@ const AdminLogin = () => {
               />
               <Input
                 label="Password"
-                className="bg-transparent"
+                className="bg-transparent text-white"
                 type="password"
                 placeholder="Enter Password"
                 name="password"
@@ -55,10 +64,9 @@ const AdminLogin = () => {
               <span className="d-flex justify-content-center">
                 <button
                   onClick={handleSubmit}
-                  variant="secondary"
                   type="submit"
                   style={{ width: "40%" }}
-                  className="btn btn-outline-secondary mt-2 mb-4"
+                  className="btn custom-btn mt-4 mb-4"
                 >
                   Login
                 </button>

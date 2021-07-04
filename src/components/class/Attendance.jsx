@@ -40,21 +40,38 @@ const Attendance = ({ match }) => {
         <Container>
           <Row>
             <Col>
-              <h3>Welcome To Attendance Dash</h3>
+              <h3
+                style={{
+                  color: "#5effe2",
+                  textShadow:
+                    "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                }}
+              >
+                Welcome To Attendance Dash
+              </h3>
             </Col>
           </Row>
           <Row>
             <Col>
               <Link
-                className="btn btn-lg btn-outline-primary"
+                className="btn btn-lg custom-btn"
                 to={`/classes/${match.params.id}/attened/add`}
               >
                 Take Attendance
               </Link>
             </Col>
           </Row>
-          <Row>
-            <Col>Please Choose Date</Col>
+          <Row className="mt-3">
+            <Col
+              style={{
+                color: "#5effe2",
+                textShadow:
+                  "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+              }}
+              className="fw-bold"
+            >
+              <h3>Please Choose Date</h3>
+            </Col>
             <Col>
               <select
                 className="form-select"
@@ -62,7 +79,15 @@ const Attendance = ({ match }) => {
                 onChange={handleFilter}
                 name="clsDate"
               >
-                <option value="" defaultValue>
+                <option
+                  value=""
+                  defaultValue
+                  style={{
+                    color: "#5effe2",
+                    textShadow:
+                      "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                  }}
+                >
                   Select Date
                 </option>
                 {dates.map((date, i) => {
@@ -78,7 +103,13 @@ const Attendance = ({ match }) => {
           <Row>
             <Table>
               <thead>
-                <tr>
+                <tr
+                  style={{
+                    color: "#5effe2",
+                    textShadow:
+                      "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                  }}
+                >
                   <th>Student Roll</th>
                   <th>Student Name</th>
                   <th>Action</th>
@@ -87,7 +118,12 @@ const Attendance = ({ match }) => {
               <tbody>
                 {data.map((a, i) => {
                   return (
-                    <tr key={i}>
+                    <tr
+                      key={i}
+                      style={{
+                        color: "#ffff",
+                      }}
+                    >
                       <td>{a.studentRoll}</td>
                       <td>{a.studentName}</td>
                       <td>{a.status}</td>

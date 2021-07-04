@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Table, Button } from "react-bootstrap";
+import { Table, Button, Container } from "react-bootstrap";
 import { deleteAssignment, getAssignments } from "../../services/classService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -31,42 +31,70 @@ const AllAssignents = ({ match }) => {
       {loader ? (
         <Loader />
       ) : (
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Assignment Name</th>
-              <th>Date</th>
-              <th>Responses</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {assignments.map((a) => {
-              return (
-                <tr key={a._id}>
-                  <td>{a.assignName}</td>
-                  <td>{a.assignDate}</td>
-                  <td>
-                    <Link
-                      className="btn "
-                      to={`/assignment/${a._id}/responses`}
-                    >
-                      <FontAwesomeIcon icon={faEye} />
-                    </Link>
-                  </td>
-                  <td>
-                    <Button
-                      className="btn bg-light"
-                      onClick={() => handleDelete(a._id)}
-                    >
-                      <FontAwesomeIcon color="red" icon={faTrash} />
-                    </Button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </Table>
+        <Container className="mt-3">
+          <div className="d-flex justify-content-center">
+            <h2
+              style={{
+                color: "#5effe2",
+                textShadow:
+                  "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+              }}
+            >
+              All Assignments.
+            </h2>
+          </div>
+          <Table striped bordered hover className="mt-4">
+            <thead>
+              <tr
+                style={{
+                  color: "#5effe2",
+                  textShadow:
+                    "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                }}
+              >
+                <th>Assignment Name</th>
+                <th>Date</th>
+                <th>Responses</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {assignments.map((a) => {
+                return (
+                  <tr
+                    key={a._id}
+                    style={{
+                      color: "#ffff",
+                    }}
+                  >
+                    <td>{a.assignName}</td>
+                    <td>{a.assignDate}</td>
+                    <td>
+                      <Link
+                        className="btn btn-success"
+                        style={{ boder: "1px solid white" }}
+                        to={`/assignment/${a._id}/responses`}
+                      >
+                        <FontAwesomeIcon
+                          style={{ boder: "1px solid white" }}
+                          icon={faEye}
+                        />
+                      </Link>
+                    </td>
+                    <td>
+                      <Button
+                        className="btn bg-light"
+                        onClick={() => handleDelete(a._id)}
+                      >
+                        <FontAwesomeIcon color="red" icon={faTrash} />
+                      </Button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </Container>
       )}
     </>
   );

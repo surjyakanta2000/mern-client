@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
 import { Table, Container } from "react-bootstrap";
-import { getResponses } from "../../services/classService";
+import { getNotices } from "../services/adminService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 
-const AllResponses = ({ match }) => {
-  const [responses, setResponses] = useState([]);
+const Notice = () => {
+  const [notices, setNotices] = useState([]);
   useEffect(() => {
     const getData = async () => {
-      const responses = await getResponses(match.params.id);
-      setResponses(responses);
+      const notices = await getNotices();
+      setNotices(notices);
     };
     getData();
-    // eslint-disable-next-line
   }, []);
   return (
     <>
@@ -22,37 +21,33 @@ const AllResponses = ({ match }) => {
             <tr
               style={{
                 color: "#5effe2",
-                textShadow:
-                  "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
               }}
             >
-              <th>Student Roll</th>
-              <th>Student Name</th>
-              <th>Student Email</th>
-              <th>Date Of Submission</th>
+              <th>Title</th>
+              <th>Date</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {responses.map((r) => {
+            {notices.map((n) => {
               return (
                 <tr
-                  key={r._id}
+                  key={n._id}
                   style={{
                     color: "#ffff",
                   }}
                 >
-                  <td>{r.studentRoll}</td>
-                  <td>{r.studentName}</td>
-                  <td>{r.studentEmail}</td>
-                  <td>{r.dateOfSub}</td>
+                  <td>{n.noticeName}</td>
+                  <td>{n.noticeDate}</td>
                   <td>
                     <a
                       className="btn btn-success"
                       style={{ boder: "1px solid white" }}
-                      href={`http://localhost:8000/${r.assignFile}`}
+                      href={`http://localhost:8000/${n.noticeFile}`}
                       target="_blank"
                       rel="noreferrer"
+                      download
                     >
                       <FontAwesomeIcon
                         style={{ boder: "1px solid white" }}
@@ -70,4 +65,4 @@ const AllResponses = ({ match }) => {
   );
 };
 
-export default AllResponses;
+export default Notice;

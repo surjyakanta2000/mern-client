@@ -25,13 +25,20 @@ const Notice = ({ match }) => {
       <Container>
         <Row>
           <Col>
-            <h3>Notice Dashboard</h3>
+            <h3
+              style={{
+                color: "#5effe2",
+                textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+              }}
+            >
+              Notice Dashboard
+            </h3>
           </Col>
         </Row>
         <Row>
           <Col>
             <Link
-              className="btn btn-lg btn-outline-primary"
+              className="btn btn-lg custom-btn"
               to={`/admin/dash/notice/add`}
             >
               Add New Notice
@@ -40,11 +47,19 @@ const Notice = ({ match }) => {
         </Row>
         <Row>
           {notices.length === 0 ? (
-            <h1>No notice found</h1>
+            <div className="d-flex justify-content-center">
+              <h1 style={{ color: "white" }}>No notice found</h1>
+            </div>
           ) : (
             <Table>
               <thead>
-                <tr>
+                <tr
+                  style={{
+                    color: "#5effe2",
+                    textShadow:
+                      "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                  }}
+                >
                   <th>Notice Name</th>
                   <th>Date</th>
                   <th>Action</th>
@@ -54,11 +69,23 @@ const Notice = ({ match }) => {
                 {notices.map((notice) => {
                   return (
                     <tr key={notice._id}>
-                      <td>{notice.noticeName}</td>
-                      <td>{notice.noticeDate}</td>
+                      <td
+                        style={{
+                          color: "white",
+                        }}
+                      >
+                        {notice.noticeName}
+                      </td>
+                      <td
+                        style={{
+                          color: "white",
+                        }}
+                      >
+                        {notice.noticeDate}
+                      </td>
                       <td>
                         <Button
-                          className="btn bg-light"
+                          className="btn custom-btn"
                           onClick={() => handleDelete(notice._id)}
                         >
                           <FontAwesomeIcon color="red" icon={faTrash} />

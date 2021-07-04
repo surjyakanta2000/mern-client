@@ -30,7 +30,15 @@ const Departments = ({ user }) => {
         <>
           <Row className="mt-2 mb-2">
             <Col sm={8}>
-              <h2>Departments..</h2>
+              <h2
+                style={{
+                  color: "#5effe2",
+                  textShadow:
+                    "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                }}
+              >
+                Departments..
+              </h2>
             </Col>
             {user && user.role === "admin" && (
               <>

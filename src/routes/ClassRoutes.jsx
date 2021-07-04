@@ -9,6 +9,7 @@ import StudentAssign from "../components/class/StudentAssign";
 import Assignment from "../components/class/Assignment";
 import AllResponses from "../components/class/AllResponses";
 import StudyMaterials from "../components/class/StudyMaterialDash";
+
 import AddMaterials from "../components/class/AddMaterial";
 import Attendance from "../components/class/Attendance";
 import StudentClassDash from "../components/student/StudentClassDash";

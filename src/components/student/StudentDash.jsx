@@ -42,66 +42,100 @@ const StudentDash = () => {
         <Loader />
       ) : (
         <Container>
-          <Row>
-            <Col>
-              <h2>Student Dashboard</h2>
-            </Col>
-            <Col className="text-end">
-              <Link
-                className="btn"
-                to={`/profile/update/${student._id}`}
-                title="Edit Profile"
-              >
-                <FontAwesomeIcon icon={faEdit} />
-              </Link>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} md={8}>
-              <Row>
-                <Col xs={6} md={4}>
-                  <h2>Name</h2>
-                </Col>
-                <Col xs={6} md={8}>
-                  <h2>{student.studentName}</h2>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={6} md={4}>
-                  <h2>Roll.No</h2>
-                </Col>
-                <Col xs={6} md={8}>
-                  <h2>{student.studentRoll}</h2>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={6} md={4}>
-                  <h2>Phone No.</h2>
-                </Col>
-                <Col xs={6} md={8}>
-                  <h2>{student.studentPhone}</h2>
-                </Col>
-              </Row>
-            </Col>
-            <Col xs={6} md={4}>
-              <img
-                className="img-thumbnail"
-                src={
-                  student.profilePic &&
-                  student.profilePic !== undefined &&
-                  student.profilePic !== "" &&
-                  student.profilePic !== null
-                    ? `http://localhost:8000/${student.profilePic}`
-                    : defaultProfilePic
-                }
-                alt={student.studentName}
-                height="100px"
-                width="100px"
-              />
-            </Col>
-          </Row>
-
-          <Row>
+          <div className="model-dash">
+            <Row>
+              <Col className="d-flex justify-content-center">
+                <h2
+                  style={{
+                    color: "#5effe2",
+                    textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+                  }}
+                >
+                  Student Dashboard
+                </h2>
+              </Col>
+              <Col className="text-end">
+                <Link
+                  className="btn btn-success"
+                  style={{ boder: "1px solid white" }}
+                  to={`/profile/update/${student._id}`}
+                  title="Edit Profile"
+                >
+                  <FontAwesomeIcon
+                    style={{ boder: "1px solid white" }}
+                    icon={faEdit}
+                  />
+                </Link>
+              </Col>
+            </Row>
+            <hr style={{ color: "#5effe2" }}></hr>
+            <Row>
+              <Col xs={12} md={8}>
+                <Row>
+                  <Col xs={6} md={4}>
+                    <h2
+                      style={{
+                        color: "#5effe2",
+                        textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+                      }}
+                    >
+                      Name
+                    </h2>
+                  </Col>
+                  <Col xs={6} md={8}>
+                    <h2 className="text-white">{student.studentName}</h2>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={6} md={4}>
+                    <h2
+                      style={{
+                        color: "#5effe2",
+                        textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+                      }}
+                    >
+                      Roll.No
+                    </h2>
+                  </Col>
+                  <Col xs={6} md={8}>
+                    <h2 className="text-white">{student.studentRoll}</h2>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={6} md={4}>
+                    <h2
+                      style={{
+                        color: "#5effe2",
+                        textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+                      }}
+                    >
+                      Phone No.
+                    </h2>
+                  </Col>
+                  <Col xs={6} md={8}>
+                    <h2 className="text-white">{student.studentPhone}</h2>
+                  </Col>
+                </Row>
+              </Col>
+              <Col xs={6} md={4}>
+                <img
+                  className="img-thumbnail"
+                  src={
+                    student.profilePic &&
+                    student.profilePic !== undefined &&
+                    student.profilePic !== "" &&
+                    student.profilePic !== null
+                      ? `http://localhost:8000/${student.profilePic}`
+                      : defaultProfilePic
+                  }
+                  alt={student.studentName}
+                  height="100px"
+                  width="100px"
+                />
+              </Col>
+            </Row>
+          </div>
+          <Row className="mt-3">
             <StudentTab
               student={student}
               classes={classes}

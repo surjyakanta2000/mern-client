@@ -45,19 +45,34 @@ const AddClass = ({ history }) => {
         <Input
           label="Class Name"
           type="text"
+          className="bg-transparent text-white"
           placeholder="Enter Class Name"
           name="clsName"
           value={cls.clsName}
           handleChange={handleChange}
         />
         <Form.Group className="mb-1">
-          <Form.Label>Department</Form.Label>
+          <Form.Label
+            style={{
+              color: "#5effe2",
+              textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+            }}
+          >
+            Department
+          </Form.Label>
           <Form.Control as="select" name="clsDept" onChange={handleChange}>
             <option value={cls.clsDept}>{user.deptName}</option>
           </Form.Control>
         </Form.Group>
         <Form.Group className="mb-1">
-          <Form.Label>Subject</Form.Label>
+          <Form.Label
+            style={{
+              color: "#5effe2",
+              textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+            }}
+          >
+            Subject
+          </Form.Label>
           <Form.Control as="select" name="clsSubject" onChange={handleChange}>
             <option value="">Select Subject</option>
             {sub.map((s) => {
@@ -70,7 +85,14 @@ const AddClass = ({ history }) => {
           </Form.Control>
         </Form.Group>
         <Form.Group className="mb-1">
-          <Form.Label>Teacher</Form.Label>
+          <Form.Label
+            style={{
+              color: "#5effe2",
+              textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+            }}
+          >
+            Teacher
+          </Form.Label>
           <Form.Control as="select" name="clsTeacher" onChange={handleChange}>
             <option value="">Select Teacher</option>
             {tech.map((t) => {
@@ -85,11 +107,20 @@ const AddClass = ({ history }) => {
         <InputSem
           name="clsSemester"
           value={cls.clsSemester}
+          className="bg-transparent text-white"
           handleChange={handleChange}
         />
-        <Button onClick={handleSubmit} variant="primary" type="submit">
-          Add
-        </Button>
+        <div className="d-flex justify-content-center">
+          <button
+            style={{ width: "30%" }}
+            onClick={handleSubmit}
+            variant="primary"
+            className="btn custom-btn mt-2"
+            type="submit"
+          >
+            Add Class
+          </button>
+        </div>
       </Form>
     </Container>
   );
