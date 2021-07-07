@@ -33,25 +33,11 @@ const AllAssignents = ({ match }) => {
       ) : (
         <Container className="mt-3">
           <div className="d-flex justify-content-center">
-            <h2
-              style={{
-                color: "#5effe2",
-                textShadow:
-                  "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-              }}
-            >
-              All Assignments.
-            </h2>
+            <h2>All Assignments.</h2>
           </div>
           <Table striped bordered hover className="mt-4">
             <thead>
-              <tr
-                style={{
-                  color: "#5effe2",
-                  textShadow:
-                    "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                }}
-              >
+              <tr>
                 <th>Assignment Name</th>
                 <th>Date</th>
                 <th>Responses</th>
@@ -61,12 +47,7 @@ const AllAssignents = ({ match }) => {
             <tbody>
               {assignments.map((a) => {
                 return (
-                  <tr
-                    key={a._id}
-                    style={{
-                      color: "#ffff",
-                    }}
-                  >
+                  <tr key={a._id}>
                     <td>{a.assignName}</td>
                     <td>{a.assignDate}</td>
                     <td>

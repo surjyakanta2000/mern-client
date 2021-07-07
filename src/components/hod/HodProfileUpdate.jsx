@@ -53,22 +53,14 @@ const HodProfileUpdate = ({ match, history }) => {
         <Container>
           <Row>
             <Col md={{ span: 6, offset: 3 }}>
-              <h3
-                style={{
-                  color: "#5effe2",
-                  textShadow:
-                    "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                }}
-              >
-                Update Profile
-              </h3>
+              <h3>Update Profile</h3>
               <Form onSubmit={(e) => e.preventDefault()} className="Form-Input">
                 <Col>
                   <Input
                     label="Teacher Name"
                     type="text"
                     placeholder="Enter Name"
-                    className="bg-transparent text-white"
+                    className="bg-transparent text-dark"
                     name="techName"
                     value={tech.techName}
                     handleChange={handleChange}
@@ -82,7 +74,7 @@ const HodProfileUpdate = ({ match, history }) => {
                     label="Teacher Email"
                     type="email"
                     placeholder="Enter Email"
-                    className="bg-transparent text-white"
+                    className="bg-transparent text-dark"
                     name="techEmail"
                     value={tech.techEmail}
                     handleChange={handleChange}
@@ -91,7 +83,7 @@ const HodProfileUpdate = ({ match, history }) => {
                     label="Teacher Phone"
                     type="text"
                     placeholder="Enter Phone"
-                    className="bg-transparent text-white"
+                    className="bg-transparent text-dark"
                     name="techPhone"
                     value={tech.techPhone}
                     handleChange={handleChange}
@@ -100,7 +92,7 @@ const HodProfileUpdate = ({ match, history }) => {
                     label="Teacher Password"
                     type="password"
                     placeholder="Enter Password"
-                    className="bg-transparent text-white"
+                    className="bg-transparent text-dark"
                     name="techPassword"
                     value={tech.techPassword}
                     handleChange={handleChange}
@@ -113,7 +105,7 @@ const HodProfileUpdate = ({ match, history }) => {
                       label="Teacher Address"
                       type="text"
                       placeholder="Enter Address"
-                      className="bg-transparent text-white"
+                      className="bg-transparent text-dark"
                       name="techAddress"
                       value={tech.techAddress}
                       handleChange={handleChange}
@@ -124,7 +116,7 @@ const HodProfileUpdate = ({ match, history }) => {
                       label="DOB"
                       type="date"
                       name="techDOB"
-                      className="bg-transparent text-white"
+                      className="bg-transparent text-dark"
                       value={tech.techDOB}
                       handleChange={handleChange}
                     />
@@ -134,7 +126,7 @@ const HodProfileUpdate = ({ match, history }) => {
                       label="Age"
                       type="text"
                       placeholder="Enter Age"
-                      className="bg-transparent text-white"
+                      className="bg-transparent text-dark"
                       name="techAge"
                       value={tech.techAge}
                       handleChange={handleChange}
@@ -145,7 +137,7 @@ const HodProfileUpdate = ({ match, history }) => {
                       label="Gender"
                       type="text"
                       placeholder="Enter Gender"
-                      className="bg-transparent text-white"
+                      className="bg-transparent text-dark"
                       name="techGender"
                       value={tech.techGender}
                       handleChange={handleChange}
@@ -155,7 +147,7 @@ const HodProfileUpdate = ({ match, history }) => {
                     label="Teacher Role"
                     type="text"
                     placeholder="Enter Role"
-                    className="bg-transparent text-white"
+                    className="bg-transparent text-dark"
                     name="role"
                     value={tech.role}
                     handleChange={handleChange}
@@ -164,7 +156,7 @@ const HodProfileUpdate = ({ match, history }) => {
                   <Col md={{ span: 6, offset: 0 }}>
                     <Input
                       label="Enter a Security Question"
-                      className="bg-transparent text-white"
+                      className="bg-transparent text-dark"
                       type="text"
                       placeholder="Enter Question"
                       name="securityQuestion"
@@ -175,7 +167,7 @@ const HodProfileUpdate = ({ match, history }) => {
                   <Col md={{ span: 6, offset: 0 }}>
                     <Input
                       label="Enter your security Answer"
-                      className="bg-transparent text-white"
+                      className="bg-transparent text-dark"
                       type="text"
                       placeholder="Enter Answer"
                       name="securityAnswer"
@@ -184,15 +176,7 @@ const HodProfileUpdate = ({ match, history }) => {
                     />
                   </Col>
                   <Form.Group className="mb-3">
-                    <Form.Label
-                      style={{
-                        color: "#5effe2",
-                        textShadow:
-                          "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                      }}
-                    >
-                      Choose a Passport Size Photo
-                    </Form.Label>
+                    <Form.Label>Choose a Passport Size Photo</Form.Label>
                     <Form.Control type="file" onChange={Upload} />
                   </Form.Group>
                 </Row>

@@ -40,29 +40,21 @@ const AddAssignment = ({ history, match }) => {
               type="text"
               placeholder="Enter Assignment Name"
               name="assignName"
-              className="bg-transparent text-white"
+              className="bg-transparent text-dark"
               value={assignment.assignName}
               handleChange={handleChange}
             />
             <Input
               label="Late Date"
               type="date"
-              className="bg-transparent text-white"
+              className="bg-transparent text-dark"
               placeholder="Enter Last Name"
               name="lastDate"
               value={assignment.lastDate}
               handleChange={handleChange}
             />
             <Form.Group className="mb-3">
-              <Form.Label
-                style={{
-                  color: "#5effe2",
-                  textShadow:
-                    "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                }}
-              >
-                Choose an assignment
-              </Form.Label>
+              <Form.Label>Choose an assignment</Form.Label>
               <Form.Control type="file" onChange={Upload} />
             </Form.Group>
             <Button onClick={handleSubmit} variant="primary" type="submit">

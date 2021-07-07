@@ -18,12 +18,7 @@ const Notice = () => {
       <Container>
         <Table striped bordered hover>
           <thead>
-            <tr
-              style={{
-                color: "#5effe2",
-                textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-              }}
-            >
+            <tr>
               <th>Title</th>
               <th>Date</th>
               <th>Action</th>
@@ -32,12 +27,7 @@ const Notice = () => {
           <tbody>
             {notices.map((n) => {
               return (
-                <tr
-                  key={n._id}
-                  style={{
-                    color: "#ffff",
-                  }}
-                >
+                <tr key={n._id}>
                   <td>{n.noticeName}</td>
                   <td>{n.noticeDate}</td>
                   <td>

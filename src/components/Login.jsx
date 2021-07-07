@@ -32,15 +32,7 @@ const Login = () => {
       <div className="model-class">
         <Row className="justify-content-md-center">
           <Col xs={12} md={6}>
-            <h1
-              className="text-center fw-bold"
-              style={{
-                color: "#5effe2",
-                textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-              }}
-            >
-              Login
-            </h1>
+            <h1 className="text-center fw-bold">Login</h1>
             <hr
               style={{
                 color: "#5effe2",
@@ -52,7 +44,7 @@ const Login = () => {
               )}
               <Input
                 label="Email ID"
-                className="bg-transparent text-white"
+                className="bg-transparent text-dark"
                 type="email"
                 placeholder="Enter Email"
                 name="email"
@@ -61,7 +53,7 @@ const Login = () => {
               />
               <Input
                 label="Password"
-                className="bg-transparent text-white"
+                className="bg-transparent text-dark"
                 type="password"
                 placeholder="Enter Password"
                 name="password"
@@ -71,18 +63,11 @@ const Login = () => {
               <Form.Group
                 className="mb-1 ml-2"
                 style={{
-                  color: "#5effe2",
+                  color: "#0c0c0c",
                 }}
               >
                 <Form.Label>
-                  <h5
-                    style={{
-                      color: "#5effe2",
-                      textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-                    }}
-                  >
-                    Login As.
-                  </h5>
+                  <h5>Login As.</h5>
                   <span></span>
                 </Form.Label>
                 <Form.Check
@@ -97,7 +82,7 @@ const Login = () => {
                 />
                 <Form.Check
                   onChange={handleChange}
-                  className="bg-transparent"
+                  className="bg-transparent text-dark"
                   inline
                   label="Teacher"
                   name="role"
@@ -107,7 +92,7 @@ const Login = () => {
                 />
                 <Form.Check
                   onChange={handleChange}
-                  className="bg-transparent"
+                  className="bg-transparent text-dark"
                   inline
                   label="HOD"
                   name="role"
@@ -117,14 +102,7 @@ const Login = () => {
                 />
               </Form.Group>
               <span>
-                <Link
-                  style={{
-                    color: "#5effe2",
-                    textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-                  }}
-                  to="/usercheck"
-                  className="fw-bold reset-span"
-                >
+                <Link to="/usercheck" className="fw-bold reset-span text-dark">
                   Forget Password ?
                 </Link>
               </span>

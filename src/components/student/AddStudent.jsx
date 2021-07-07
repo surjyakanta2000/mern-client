@@ -39,7 +39,7 @@ const AddStudent = ({ history }) => {
           label="Student Roll"
           type="text"
           placeholder="Enter Roll"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="studentRoll"
           value={student.studentRoll}
           handleChange={handleChange}
@@ -48,7 +48,7 @@ const AddStudent = ({ history }) => {
           label="Student Name"
           type="text"
           placeholder="Enter Name"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="studentName"
           value={student.studentName}
           handleChange={handleChange}
@@ -67,7 +67,7 @@ const AddStudent = ({ history }) => {
           label="Student Email"
           type="email"
           placeholder="Enter Email"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="studentEmail"
           value={student.studentEmail}
           handleChange={handleChange}
@@ -76,7 +76,7 @@ const AddStudent = ({ history }) => {
           label="Student Phone"
           type="text"
           placeholder="Enter Phone"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="studentPhone"
           value={student.studentPhone}
           handleChange={handleChange}
@@ -84,7 +84,7 @@ const AddStudent = ({ history }) => {
         <Input
           label="Student Password"
           type="password"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           placeholder="Enter Password"
           name="studentPassword"
           value={student.studentPassword}

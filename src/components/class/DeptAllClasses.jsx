@@ -26,13 +26,7 @@ const DeptAllClasses = () => {
   return (
     <>
       <Row className="d-flex mt-3 mb-2">
-        <Col
-          sm={8}
-          style={{
-            color: "#5effe2",
-            textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-          }}
-        >
+        <Col sm={8}>
           <h3>Dept All Classes</h3>
         </Col>
         <Col sm={4}>
@@ -43,12 +37,7 @@ const DeptAllClasses = () => {
       </Row>
       <Table striped bordered hover>
         <thead>
-          <tr
-            style={{
-              color: "#5effe2",
-              textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-            }}
-          >
+          <tr>
             <th>Class Name</th>
             <th>Subject Code</th>
             <th>Teacher Name</th>
@@ -59,12 +48,7 @@ const DeptAllClasses = () => {
         <tbody>
           {classes.map((c) => {
             return (
-              <tr
-                key={c._id}
-                style={{
-                  color: "white",
-                }}
-              >
+              <tr key={c._id}>
                 <td>{c.clsName}</td>
                 <td>{c.clsSubject.subCode}</td>
                 <td>{c.clsTeacher !== null ? c.clsTeacher.techName : ""}</td>

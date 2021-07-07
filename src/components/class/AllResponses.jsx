@@ -19,13 +19,7 @@ const AllResponses = ({ match }) => {
       <Container>
         <Table striped bordered hover>
           <thead>
-            <tr
-              style={{
-                color: "#5effe2",
-                textShadow:
-                  "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-              }}
-            >
+            <tr>
               <th>Student Roll</th>
               <th>Student Name</th>
               <th>Student Email</th>
@@ -36,12 +30,7 @@ const AllResponses = ({ match }) => {
           <tbody>
             {responses.map((r) => {
               return (
-                <tr
-                  key={r._id}
-                  style={{
-                    color: "#ffff",
-                  }}
-                >
+                <tr key={r._id}>
                   <td>{r.studentRoll}</td>
                   <td>{r.studentName}</td>
                   <td>{r.studentEmail}</td>

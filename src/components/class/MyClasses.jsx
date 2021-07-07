@@ -3,22 +3,10 @@ import { Link } from "react-router-dom";
 const MyClasses = ({ classes }) => {
   return (
     <>
-      <h1
-        style={{
-          color: "#5effe2",
-          textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-        }}
-      >
-        My Classes
-      </h1>
+      <h1>My Classes</h1>
       <Table striped bordered hover>
         <thead>
-          <tr
-            style={{
-              color: "#5effe2",
-              textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-            }}
-          >
+          <tr>
             <th>Class Name</th>
             <th>Subject Code</th>
             <th>Semester</th>
@@ -28,12 +16,7 @@ const MyClasses = ({ classes }) => {
         <tbody>
           {classes.map((c) => {
             return (
-              <tr
-                style={{
-                  color: "white",
-                }}
-                key={c._id}
-              >
+              <tr key={c._id}>
                 <td>{c.clsName}</td>
                 <td>{c.clsSubject.subCode}</td>
                 <td>{c.clsSemester}</td>

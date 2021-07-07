@@ -26,14 +26,7 @@ const AddTeacher = ({ history }) => {
 
   return (
     <Container>
-      <h1
-        style={{
-          color: "#5effe2",
-          textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-        }}
-      >
-        Add Teacher
-      </h1>
+      <h1>Add Teacher</h1>
       <Form onSubmit={(e) => e.preventDefault()}>
         {err && err !== "" && err !== undefined && (
           <div className="text-danger text-center fw-bold">{err}</div>
@@ -42,7 +35,7 @@ const AddTeacher = ({ history }) => {
           label="Teacher Name"
           type="text"
           placeholder="Enter Name"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="techName"
           value={tech.techName}
           handleChange={handleChange}
@@ -50,14 +43,14 @@ const AddTeacher = ({ history }) => {
         <InputDept
           handleChange={handleChange}
           value={tech.techDept}
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="techDept"
         />
         <Input
           label="Teacher Email"
           type="email"
           placeholder="Enter Email"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="techEmail"
           value={tech.techEmail}
           handleChange={handleChange}
@@ -66,7 +59,7 @@ const AddTeacher = ({ history }) => {
           label="Teacher Phone"
           type="text"
           placeholder="Enter Phone"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="techPhone"
           value={tech.techPhone}
           handleChange={handleChange}
@@ -75,7 +68,7 @@ const AddTeacher = ({ history }) => {
           label="Teacher Password"
           type="password"
           placeholder="Enter Password"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="techPassword"
           value={tech.techPassword}
           handleChange={handleChange}

@@ -29,26 +29,10 @@ const StudentClassDash = ({ match }) => {
         <Container>
           <Row>
             <Col>
-              <h3
-                style={{
-                  color: "#5effe2",
-                  textShadow:
-                    "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                }}
-              >
-                Welcome To Class
-              </h3>
+              <h3>Welcome To Class</h3>
             </Col>
             <Col>
-              <h3
-                style={{
-                  color: "#5effe2",
-                  textShadow:
-                    "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                }}
-              >
-                {cls.clsName}
-              </h3>
+              <h3>{cls.clsName}</h3>
             </Col>
           </Row>
 
@@ -57,15 +41,7 @@ const StudentClassDash = ({ match }) => {
               <Tab eventKey="materials" title="Materials">
                 {cls.clsMaterials.lenth === 0 ||
                 cls.clsMaterials === undefined ? (
-                  <h2
-                    style={{
-                      color: "#5effe2",
-                      textShadow:
-                        "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                    }}
-                  >
-                    No Material Found
-                  </h2>
+                  <h2>No Material Found</h2>
                 ) : (
                   <ul>
                     {cls.clsMaterials.map((c, i) => {
@@ -90,26 +66,12 @@ const StudentClassDash = ({ match }) => {
               </Tab>
               <Tab eventKey="assignment" title="Assignment">
                 {assignments.lenth === 0 ? (
-                  <h2
-                    style={{
-                      color: "#5effe2",
-                      textShadow:
-                        "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                    }}
-                  >
-                    No Assignment Pending
-                  </h2>
+                  <h2>No Assignment Pending</h2>
                 ) : (
                   <>
                     <Table>
                       <thead>
-                        <tr
-                          style={{
-                            color: "#5effe2",
-                            textShadow:
-                              "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                          }}
-                        >
+                        <tr>
                           <th>Notice Name</th>
                           <th>Date</th>
                           <th>Last Date</th>
@@ -119,12 +81,7 @@ const StudentClassDash = ({ match }) => {
                       <tbody>
                         {assignments.map((assign) => {
                           return (
-                            <tr
-                              key={assign._id}
-                              style={{
-                                color: "#ffff",
-                              }}
-                            >
+                            <tr key={assign._id}>
                               <td>{assign.assignName}</td>
                               <td>{assign.assignDate}</td>
                               <td>{assign.lastDate}</td>

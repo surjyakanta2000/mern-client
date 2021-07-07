@@ -51,15 +51,15 @@ const AdminDashboard = () => {
         <h2
           className="d-flex justify-content-center mt-3"
           style={{
-            color: "#5effe2",
-            textShadow: "1px 1px 2px black, 0 0 25px black, 0 0 5px darkblue",
+            color: "white",
+            textShadow: "2px 2px 4px #000000",
           }}
         >
           Admin Dashboard
         </h2>
         <hr
           style={{
-            color: "#5effe2",
+            color: "#0c0c0c",
             height: "3px",
           }}
         ></hr>

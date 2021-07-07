@@ -36,24 +36,11 @@ const TeacherDash = () => {
           <div className="model-dash mt-4">
             <Row>
               <Col className="d-flex justify-content-center">
-                <h3
-                  style={{
-                    color: "#5effe2",
-                    textShadow:
-                      "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                  }}
-                >
-                  Welcome to Teacher Dashboard...
-                </h3>
+                <h3>Welcome to Teacher Dashboard...</h3>
               </Col>
             </Row>
             <Row>
-              <hr
-                style={{
-                  color: "#5effe2",
-                  width: "3px",
-                }}
-              ></hr>
+              <hr></hr>
             </Row>
             <div>
               <Row>
@@ -76,69 +63,26 @@ const TeacherDash = () => {
                 <Col md={{ span: 5, offset: 0 }}>
                   <Row>
                     <Col xs={6} md={4}>
-                      <h3
-                        style={{
-                          color: "#5effe2",
-                          textShadow:
-                            "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                        }}
-                      >
-                        Name
-                      </h3>
+                      <h3>Name</h3>
                     </Col>
                     <Col xs={6} md={8}>
-                      <h3
-                        style={{
-                          color: "#fff",
-                        }}
-                        className="text-uppercase"
-                      >
-                        {tech.techName}
-                      </h3>
+                      <h3 className="text-uppercase">{tech.techName}</h3>
                     </Col>
                   </Row>
                   <Row>
                     <Col xs={6} md={4}>
-                      <h4
-                        style={{
-                          color: "#5effe2",
-                          textShadow:
-                            "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                        }}
-                      >
-                        Email
-                      </h4>
+                      <h4>Email</h4>
                     </Col>
                     <Col xs={6} md={8}>
-                      <h4
-                        style={{
-                          color: "#fff",
-                        }}
-                      >
-                        {tech.techEmail}
-                      </h4>
+                      <h4>{tech.techEmail}</h4>
                     </Col>
                   </Row>
                   <Row>
                     <Col xs={6} md={4}>
-                      <h5
-                        style={{
-                          color: "#5effe2",
-                          textShadow:
-                            "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                        }}
-                      >
-                        Phone
-                      </h5>
+                      <h5>Phone</h5>
                     </Col>
                     <Col xs={6} md={8}>
-                      <h5
-                        style={{
-                          color: "#fff",
-                        }}
-                      >
-                        {tech.techPhone}
-                      </h5>
+                      <h5>{tech.techPhone}</h5>
                     </Col>
                   </Row>
                 </Col>

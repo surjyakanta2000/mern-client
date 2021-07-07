@@ -34,14 +34,7 @@ const EditDept = ({ history, match }) => {
 
   return (
     <Container>
-      <h1
-        style={{
-          color: "#5effe2",
-          textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-        }}
-      >
-        Update Department
-      </h1>
+      <h1>Update Department</h1>
       <Form onSubmit={(e) => e.preventDefault()}>
         {err && err !== "" && err !== undefined && (
           <div className="text-danger text-center fw-bold">{err}</div>
@@ -51,7 +44,7 @@ const EditDept = ({ history, match }) => {
           type="text"
           placeholder="Enter Code"
           name="deptCode"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           value={dept.deptCode}
           handleChange={handleChange}
         />
@@ -59,7 +52,7 @@ const EditDept = ({ history, match }) => {
           label="Department name"
           type="text"
           placeholder="Enter Name"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="deptName"
           value={dept.deptName}
           handleChange={handleChange}

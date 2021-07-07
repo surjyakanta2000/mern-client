@@ -21,15 +21,7 @@ const Home = ({ user }) => {
           >
             <Marquee width="100%" speed="50">
               <h1 className="text-dark fw-bold">
-                Welcome to{" "}
-                <span
-                  style={{
-                    color: "#5effe2",
-                    textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-                  }}
-                >
-                  LMS{" "}
-                </span>
+                Welcome to <span className="text-primary">LMS </span>
               </h1>
             </Marquee>
             {!user ? (
@@ -53,12 +45,7 @@ const Home = ({ user }) => {
                     marginTop: "1rem",
                   }}
                 >
-                  <h6
-                    style={{
-                      color: "#5effe2",
-                      textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-                    }}
-                  >
+                  <h6>
                     Hello User Hope You have a nice Exprience With Our
                     Website..Click To.
                     <Link className="btn btn-outline-primary" to="/login">
@@ -68,13 +55,7 @@ const Home = ({ user }) => {
                 </Col>
                 <Col md={{ span: 3, offset: 3 }}>
                   <Link to="/notice">
-                    <h4
-                      style={{
-                        color: "white",
-                      }}
-                    >
-                      Notice
-                    </h4>
+                    <h4>Notice</h4>
                   </Link>
                 </Col>
               </Row>
@@ -98,22 +79,9 @@ const Home = ({ user }) => {
                     marginTop: "1rem",
                   }}
                 >
-                  <h6
-                    style={{
-                      color: "#5effe2",
-                    }}
-                  >
-                    Hello{" "}
-                    <span
-                      className="fw-bold"
-                      style={{
-                        color: "#5effe2",
-                        textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-                      }}
-                    >
-                      {user.name}
-                    </span>{" "}
-                    Hope You have a nice Exprience With Our Website..Click To.
+                  <h6>
+                    Hello <span className="fw-bold">{user.name}</span> Hope You
+                    have a nice Exprience With Our Website..Click To.
                     <Link className="btn btn-outline-warning" to="/dash">
                       Your Profile
                     </Link>
@@ -121,15 +89,7 @@ const Home = ({ user }) => {
                 </Col>
                 <Col md={{ span: 3, offset: 3 }}>
                   <Link to="/notice">
-                    <h4
-                      style={{
-                        color: "white",
-                        textShadow:
-                          "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                      }}
-                    >
-                      Notice
-                    </h4>
+                    <h4>Notice</h4>
                   </Link>
                 </Col>
               </Row>

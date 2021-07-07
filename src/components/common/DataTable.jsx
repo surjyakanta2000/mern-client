@@ -78,7 +78,7 @@ const DataTable = ({ tableName, data, columns }) => {
           className="text-center text-primary fw-bold mt-2"
           style={{
             color: "white",
-            textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+            textShadow: "2px 2px 4px #000000",
           }}
         >
           No Record Found
@@ -88,13 +88,7 @@ const DataTable = ({ tableName, data, columns }) => {
           <div className="model-dash">
             <Table striped bordered hover responsive>
               <thead>
-                <tr
-                  style={{
-                    color: "#5effe2",
-                    textShadow:
-                      "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                  }}
-                >
+                <tr>
                   {columns.map((column) => {
                     if (column.label === "Edit" || column.label === "Delete") {
                       if (!user || user === undefined) {
@@ -128,11 +122,6 @@ const DataTable = ({ tableName, data, columns }) => {
                       {columns.map((column) => {
                         return (
                           <td
-                            style={{
-                              color: "white",
-                              textShadow:
-                                "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                            }}
                             className={"text-" + column.color}
                             key={column.value}
                           >

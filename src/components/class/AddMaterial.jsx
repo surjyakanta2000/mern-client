@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { Form, Container, Row, Col } from "react-bootstrap";
 import Input from "../common/Input";
 import { addMaterial } from "../../services/classService";
 
@@ -44,20 +44,11 @@ const AddMaterial = ({ history, match }) => {
       <Row className="justify-content-md-center">
         <Col xs={12} md={6}>
           <Form onSubmit={(e) => e.preventDefault()}>
-            <h2
-              className="text-center"
-              style={{
-                color: "#5effe2",
-                textShadow:
-                  "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-              }}
-            >
-              Add Material
-            </h2>
+            <h2 className="text-center">Add Material</h2>
             <Input
               label="Material Name"
               type="text"
-              className="bg-transparent text-white"
+              className="bg-transparent text-dark"
               placeholder="Enter Material Name"
               name="materialName"
               value={material.materialName}
@@ -79,7 +70,7 @@ const AddMaterial = ({ history, match }) => {
             <Input
               label="Material Link"
               type="text"
-              className="bg-transparent text-white"
+              className="bg-transparent text-dark"
               placeholder="Enter Material Link"
               name="material"
               value={material.material}

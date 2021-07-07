@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Form, Button, Row, Col } from "react-bootstrap";
+import { Container, Form, Row, Col } from "react-bootstrap";
 import { getSpecStudent, updateProfile } from "../../services/studentService";
 import Input from "../common/Input";
 import InputDept from "../common/InputDept";
@@ -51,21 +51,13 @@ const ProfileUpdate = ({ match, history }) => {
         <Container>
           <Row>
             <Col md={{ span: 6, offset: 3 }}>
-              <h3
-                style={{
-                  color: "#5effe2",
-                  textShadow:
-                    "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                }}
-              >
-                Update Profile
-              </h3>
+              <h3>Update Profile</h3>
               <Form onSubmit={(e) => e.preventDefault()}>
                 <Col>
                   <Input
                     label="Student Roll"
                     type="text"
-                    className="bg-transparent text-white"
+                    className="bg-transparent text-dark"
                     placeholder="Enter Roll"
                     name="studentRoll"
                     value={student.studentRoll}
@@ -74,7 +66,7 @@ const ProfileUpdate = ({ match, history }) => {
                   <Input
                     label="Student Name"
                     type="text"
-                    className="bg-transparent text-white"
+                    className="bg-transparent text-dark"
                     placeholder="Enter Name"
                     name="studentName"
                     value={student.studentName}
@@ -98,7 +90,7 @@ const ProfileUpdate = ({ match, history }) => {
                       type="email"
                       placeholder="Enter Email"
                       name="studentEmail"
-                      className="bg-transparent text-white"
+                      className="bg-transparent text-dark"
                       value={student.studentEmail}
                       handleChange={handleChange}
                     />
@@ -107,7 +99,7 @@ const ProfileUpdate = ({ match, history }) => {
                     <Input
                       label="Student Phone"
                       type="text"
-                      className="bg-transparent text-white"
+                      className="bg-transparent text-dark"
                       placeholder="Enter Phone"
                       name="studentPhone"
                       value={student.studentPhone}
@@ -128,7 +120,7 @@ const ProfileUpdate = ({ match, history }) => {
                     <Input
                       label="Address"
                       type="text"
-                      className="bg-transparent text-white"
+                      className="bg-transparent text-dark"
                       placeholder="Enter Address"
                       name="studentAddress"
                       value={student.studentAddress}
@@ -139,7 +131,7 @@ const ProfileUpdate = ({ match, history }) => {
                     <Input
                       label="DOB"
                       type="date"
-                      className="bg-transparent text-white"
+                      className="bg-transparent text-dark"
                       placeholder="DD/MM/YYYY"
                       name="studentDOB"
                       value={student.studentDOB}
@@ -150,7 +142,7 @@ const ProfileUpdate = ({ match, history }) => {
                     <Input
                       label="Age"
                       type="text"
-                      className="bg-transparent text-white"
+                      className="bg-transparent text-dark"
                       placeholder="Enter Age"
                       name="studentAge"
                       value={student.studentAge}
@@ -161,7 +153,7 @@ const ProfileUpdate = ({ match, history }) => {
                     <Input
                       label="Gender"
                       type="text"
-                      className="bg-transparent text-white"
+                      className="bg-transparent text-dark"
                       placeholder="Enter Gender"
                       name="studentGender"
                       value={student.studentGender}
@@ -171,7 +163,7 @@ const ProfileUpdate = ({ match, history }) => {
                   <Input
                     label="Teacher Role"
                     type="text"
-                    className="bg-transparent text-white"
+                    className="bg-transparent text-dark"
                     placeholder="Enter Role"
                     name="role"
                     value={student.role}
@@ -182,7 +174,7 @@ const ProfileUpdate = ({ match, history }) => {
                     <Input
                       label="Enter a Security Question"
                       type="text"
-                      className="bg-transparent text-white"
+                      className="bg-transparent text-dark"
                       placeholder="Enter Question"
                       name="securityQuestion"
                       value={student.securityQuestion}
@@ -193,7 +185,7 @@ const ProfileUpdate = ({ match, history }) => {
                     <Input
                       label="Enter your security Answer"
                       type="text"
-                      className="bg-transparent text-white"
+                      className="bg-transparent text-dark"
                       placeholder="Enter Answer"
                       name="securityAnswer"
                       value={student.securityAnswer}
@@ -201,15 +193,7 @@ const ProfileUpdate = ({ match, history }) => {
                     />
                   </Col>
                   <Form.Group className="mb-3">
-                    <Form.Label
-                      style={{
-                        color: "#5effe2",
-                        textShadow:
-                          "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                      }}
-                    >
-                      Choose a Passport Size Photo
-                    </Form.Label>
+                    <Form.Label>Choose a Passport Size Photo</Form.Label>
                     <Form.Control type="file" onChange={Upload} />
                   </Form.Group>
                 </Row>
@@ -218,7 +202,7 @@ const ProfileUpdate = ({ match, history }) => {
                     style={{ width: "30%" }}
                     onClick={handleSubmit}
                     variant="primary"
-                    className="btn custom-btn mt-1"
+                    className="btn custom-btn mt-1 mb-3"
                     type="submit"
                   >
                     Update

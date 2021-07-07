@@ -45,14 +45,7 @@ const StudentDash = () => {
           <div className="model-dash">
             <Row>
               <Col className="d-flex justify-content-center">
-                <h2
-                  style={{
-                    color: "#5effe2",
-                    textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-                  }}
-                >
-                  Student Dashboard
-                </h2>
+                <h2>Student Dashboard</h2>
               </Col>
               <Col className="text-end">
                 <Link
@@ -73,47 +66,26 @@ const StudentDash = () => {
               <Col xs={12} md={8}>
                 <Row>
                   <Col xs={6} md={4}>
-                    <h2
-                      style={{
-                        color: "#5effe2",
-                        textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-                      }}
-                    >
-                      Name
-                    </h2>
+                    <h2>Name</h2>
                   </Col>
                   <Col xs={6} md={8}>
-                    <h2 className="text-white">{student.studentName}</h2>
+                    <h2 className="text-dark">{student.studentName}</h2>
                   </Col>
                 </Row>
                 <Row>
                   <Col xs={6} md={4}>
-                    <h2
-                      style={{
-                        color: "#5effe2",
-                        textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-                      }}
-                    >
-                      Roll.No
-                    </h2>
+                    <h2>Roll.No</h2>
                   </Col>
                   <Col xs={6} md={8}>
-                    <h2 className="text-white">{student.studentRoll}</h2>
+                    <h2 className="text-dark">{student.studentRoll}</h2>
                   </Col>
                 </Row>
                 <Row>
                   <Col xs={6} md={4}>
-                    <h2
-                      style={{
-                        color: "#5effe2",
-                        textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-                      }}
-                    >
-                      Phone No.
-                    </h2>
+                    <h2>Phone No.</h2>
                   </Col>
                   <Col xs={6} md={8}>
-                    <h2 className="text-white">{student.studentPhone}</h2>
+                    <h2 className="text-dark">{student.studentPhone}</h2>
                   </Col>
                 </Row>
               </Col>

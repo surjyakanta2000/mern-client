@@ -46,14 +46,7 @@ const EditStudent = ({ history, match }) => {
 
   return (
     <Container>
-      <h1
-        style={{
-          color: "#5effe2",
-          textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-        }}
-      >
-        Edit Student..
-      </h1>
+      <h1>Edit Student..</h1>
       <Form onSubmit={(e) => e.preventDefault()}>
         {err && err !== "" && err !== undefined && (
           <div className="text-danger text-center fw-bold">{err}</div>
@@ -62,7 +55,7 @@ const EditStudent = ({ history, match }) => {
           label="Student Roll"
           type="text"
           placeholder="Enter Roll"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="studentRoll"
           value={student.studentRoll}
           handleChange={handleChange}
@@ -71,7 +64,7 @@ const EditStudent = ({ history, match }) => {
           label="Student Name"
           type="text"
           placeholder="Enter Name"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="studentName"
           value={student.studentName}
           handleChange={handleChange}
@@ -90,7 +83,7 @@ const EditStudent = ({ history, match }) => {
           label="Student Email"
           type="email"
           placeholder="Enter Email"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="studentEmail"
           value={student.studentEmail}
           handleChange={handleChange}
@@ -100,7 +93,7 @@ const EditStudent = ({ history, match }) => {
           type="text"
           placeholder="Enter Phone"
           name="studentPhone"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           value={student.studentPhone}
           handleChange={handleChange}
         />
@@ -108,7 +101,7 @@ const EditStudent = ({ history, match }) => {
           label="Student Password"
           type="password"
           placeholder="Enter Password"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="studentPassword"
           value={student.studentPassword}
           handleChange={handleChange}
@@ -123,7 +116,7 @@ const EditStudent = ({ history, match }) => {
             className="btn custom-btn mt-4"
             type="submit"
           >
-            Add
+            Update
           </button>
         </div>
       </Form>

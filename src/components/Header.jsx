@@ -2,13 +2,12 @@ import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 const Header = ({ user }) => {
   return (
-    <Navbar bg="transparent" style={{ border: "none" }}>
+    <Navbar className="bg-light" style={{ border: "none" }}>
       <NavLink
         to="/"
         className="navbar-brand fw-bold"
         style={{
-          color: "#5effe2",
-          textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+          color: "#0c0c0c",
         }}
       >
         E-Learning
@@ -18,8 +17,7 @@ const Header = ({ user }) => {
         <Nav className="mr-auto">
           <NavLink
             style={{
-              color: "#5effe2",
-              textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+              color: "#0c0c0c",
             }}
             activeClassName="menu_active"
             to="/departments"
@@ -29,8 +27,7 @@ const Header = ({ user }) => {
           </NavLink>
           <NavLink
             style={{
-              color: "#5effe2",
-              textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+              color: "#0c0c0c",
             }}
             activeClassName="menu_active"
             to="/teachers"
@@ -40,8 +37,7 @@ const Header = ({ user }) => {
           </NavLink>
           <NavLink
             style={{
-              color: "#5effe2",
-              textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+              color: "#0c0c0c",
             }}
             activeClassName="menu_active"
             to="/subjects"
@@ -51,8 +47,7 @@ const Header = ({ user }) => {
           </NavLink>
           <NavLink
             style={{
-              color: "#5effe2",
-              textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+              color: "#0c0c0c",
             }}
             activeClassName="menu_active"
             to="/students"
@@ -63,8 +58,7 @@ const Header = ({ user }) => {
           {!user && (
             <NavLink
               style={{
-                color: "#5effe2",
-                textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+                color: "#0c0c0c",
               }}
               to="/login"
               activeClassName="menu_active"
@@ -77,8 +71,7 @@ const Header = ({ user }) => {
             <>
               <NavLink
                 style={{
-                  color: "#5effe2",
-                  textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+                  color: "#0c0c0c",
                 }}
                 activeClassName="menu_active"
                 to="/dash"
@@ -88,8 +81,7 @@ const Header = ({ user }) => {
               </NavLink>
               <NavLink
                 style={{
-                  color: "#5effe2",
-                  textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+                  color: "#0c0c0c",
                 }}
                 activeClassName="menu_active"
                 to="/logout"

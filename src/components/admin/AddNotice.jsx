@@ -27,8 +27,7 @@ const AddAssignment = ({ history }) => {
       <div className="d-flex justify-content-md-center">
         <h1
           style={{
-            color: "#5effe2",
-            textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
+            color: "#0c0c0c",
           }}
         >
           Add Notice
@@ -36,7 +35,7 @@ const AddAssignment = ({ history }) => {
       </div>
       <hr
         style={{
-          color: "#5effe2",
+          color: "#0c0c0c",
           height: "3px",
         }}
       ></hr>
@@ -47,21 +46,14 @@ const AddAssignment = ({ history }) => {
               label="Notice Name"
               type="text"
               placeholder="Enter Notice Name"
-              className="bg-transparent text-white"
+              className="bg-transparent"
               name="noticeName"
               value={notice.noticeName}
               handleChange={handleChange}
             />
 
             <Form.Group className="mb-3">
-              <Form.Label
-                style={{
-                  color: "#5effe2",
-                  textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-                }}
-              >
-                Choose a Notice
-              </Form.Label>
+              <Form.Label>Choose a Notice</Form.Label>
               <Form.Control type="file" onChange={Upload} />
             </Form.Group>
             <button

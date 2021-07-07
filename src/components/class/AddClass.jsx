@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Container } from "react-bootstrap";
 import { addClass, getSubForDept } from "../../services/classService";
 import { getTeacher } from "../../services/techService";
 import { getCurrentUser } from "../../services/userService";
@@ -45,34 +45,20 @@ const AddClass = ({ history }) => {
         <Input
           label="Class Name"
           type="text"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           placeholder="Enter Class Name"
           name="clsName"
           value={cls.clsName}
           handleChange={handleChange}
         />
         <Form.Group className="mb-1">
-          <Form.Label
-            style={{
-              color: "#5effe2",
-              textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-            }}
-          >
-            Department
-          </Form.Label>
+          <Form.Label>Department</Form.Label>
           <Form.Control as="select" name="clsDept" onChange={handleChange}>
             <option value={cls.clsDept}>{user.deptName}</option>
           </Form.Control>
         </Form.Group>
         <Form.Group className="mb-1">
-          <Form.Label
-            style={{
-              color: "#5effe2",
-              textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-            }}
-          >
-            Subject
-          </Form.Label>
+          <Form.Label>Subject</Form.Label>
           <Form.Control as="select" name="clsSubject" onChange={handleChange}>
             <option value="">Select Subject</option>
             {sub.map((s) => {
@@ -85,14 +71,7 @@ const AddClass = ({ history }) => {
           </Form.Control>
         </Form.Group>
         <Form.Group className="mb-1">
-          <Form.Label
-            style={{
-              color: "#5effe2",
-              textShadow: "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-            }}
-          >
-            Teacher
-          </Form.Label>
+          <Form.Label>Teacher</Form.Label>
           <Form.Control as="select" name="clsTeacher" onChange={handleChange}>
             <option value="">Select Teacher</option>
             {tech.map((t) => {
@@ -107,7 +86,7 @@ const AddClass = ({ history }) => {
         <InputSem
           name="clsSemester"
           value={cls.clsSemester}
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           handleChange={handleChange}
         />
         <div className="d-flex justify-content-center">

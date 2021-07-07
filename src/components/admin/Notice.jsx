@@ -25,14 +25,7 @@ const Notice = ({ match }) => {
       <Container>
         <Row>
           <Col>
-            <h3
-              style={{
-                color: "#5effe2",
-                textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-              }}
-            >
-              Notice Dashboard
-            </h3>
+            <h3>Notice Dashboard</h3>
           </Col>
         </Row>
         <Row>
@@ -55,9 +48,7 @@ const Notice = ({ match }) => {
               <thead>
                 <tr
                   style={{
-                    color: "#5effe2",
-                    textShadow:
-                      "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                    color: "black",
                   }}
                 >
                   <th>Notice Name</th>
@@ -69,20 +60,8 @@ const Notice = ({ match }) => {
                 {notices.map((notice) => {
                   return (
                     <tr key={notice._id}>
-                      <td
-                        style={{
-                          color: "white",
-                        }}
-                      >
-                        {notice.noticeName}
-                      </td>
-                      <td
-                        style={{
-                          color: "white",
-                        }}
-                      >
-                        {notice.noticeDate}
-                      </td>
+                      <td>{notice.noticeName}</td>
+                      <td>{notice.noticeDate}</td>
                       <td>
                         <Button
                           className="btn custom-btn"

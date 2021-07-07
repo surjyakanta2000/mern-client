@@ -41,16 +41,7 @@ const HodDash = () => {
           <div className="model-dash">
             <Row>
               <Col className="d-flex justify-content-center">
-                <h2
-                  className="fw-bold"
-                  style={{
-                    color: "#5effe2",
-                    textShadow:
-                      "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                  }}
-                >
-                  Welcome to HOD Dashboard...
-                </h2>
+                <h2 className="fw-bold">Welcome to HOD Dashboard...</h2>
               </Col>
               <hr></hr>
             </Row>
@@ -72,14 +63,7 @@ const HodDash = () => {
                   width="100px"
                 />
               </Col>
-              <Col
-                md={{ span: 8, offset: 0 }}
-                style={{
-                  color: "#5effe2",
-                  textShadow:
-                    "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-                }}
-              >
+              <Col md={{ span: 8, offset: 0 }}>
                 <Row>
                   <Col xs={6} md={4}>
                     <h3>Name</h3>

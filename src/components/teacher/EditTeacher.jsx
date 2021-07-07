@@ -43,14 +43,7 @@ const EditTeacher = ({ history, match }) => {
 
   return (
     <Container>
-      <h1
-        style={{
-          color: "#5effe2",
-          textShadow: "1px 0px 9px rgba(0, 255, 255, 1)",
-        }}
-      >
-        Update Teacher
-      </h1>
+      <h1>Update Teacher</h1>
       <Form onSubmit={(e) => e.preventDefault()}>
         {err && err !== "" && err !== undefined && (
           <div className="text-danger text-center fw-bold">{err}</div>
@@ -59,7 +52,7 @@ const EditTeacher = ({ history, match }) => {
           label="Teacher Name"
           type="text"
           placeholder="Enter Name"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="techName"
           value={tech.techName}
           handleChange={handleChange}
@@ -72,7 +65,7 @@ const EditTeacher = ({ history, match }) => {
         <Input
           label="Teacher Email"
           type="email"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           placeholder="Enter Email"
           name="techEmail"
           value={tech.techEmail}
@@ -82,7 +75,7 @@ const EditTeacher = ({ history, match }) => {
           label="Teacher Phone"
           type="text"
           placeholder="Enter Phone"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="techPhone"
           value={tech.techPhone}
           handleChange={handleChange}
@@ -91,7 +84,7 @@ const EditTeacher = ({ history, match }) => {
           label="Teacher Password"
           type="password"
           placeholder="Enter Password"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           name="techPassword"
           value={tech.techPassword}
           handleChange={handleChange}
@@ -100,7 +93,7 @@ const EditTeacher = ({ history, match }) => {
         <Input
           label="Teacher Role"
           type="text"
-          className="bg-transparent text-white"
+          className="bg-transparent text-dark"
           placeholder="Enter Role"
           name="role"
           value={tech.role}
@@ -114,7 +107,7 @@ const EditTeacher = ({ history, match }) => {
             className="btn custom-btn mt-4"
             type="submit"
           >
-            Add
+            Update
           </button>
         </div>
       </Form>

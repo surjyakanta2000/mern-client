@@ -17,35 +17,14 @@ const ClassDash = ({ match }) => {
       <div className="model-dash mt-4">
         <Row className="mt-4">
           <Col className="ml-3 d-flex justify-content-center">
-            <h3
-              style={{
-                color: "#5effe2",
-                textShadow:
-                  "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-              }}
-            >
-              Welcome To Class
-            </h3>
+            <h3>Welcome To Class</h3>
           </Col>
           <Col>
-            <h3
-              style={{
-                color: "#5effe2",
-                textShadow:
-                  "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
-              }}
-            >
-              {cls.clsName}
-            </h3>
+            <h3>{cls.clsName}</h3>
           </Col>
         </Row>
         <Row>
-          <hr
-            style={{
-              color: "#5effe2",
-              width: "3px",
-            }}
-          ></hr>
+          <hr></hr>
         </Row>
 
         <Row className="mb-4 mt-3 d-flex justify-content-center">
