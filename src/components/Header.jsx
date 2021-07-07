@@ -2,7 +2,7 @@ import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 const Header = ({ user }) => {
   return (
-    <Navbar className="bg-light" style={{ border: "none" }}>
+    <Navbar bg="primary" variant="light" style={{ border: "none" }}>
       <NavLink
         to="/"
         className="navbar-brand fw-bold"
@@ -10,7 +10,7 @@ const Header = ({ user }) => {
           color: "#0c0c0c",
         }}
       >
-        E-Learning
+        LMS
       </NavLink>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

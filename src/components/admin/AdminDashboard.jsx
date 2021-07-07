@@ -48,15 +48,7 @@ const AdminDashboard = () => {
   return (
     <Container>
       <div className="model-dash mt-4">
-        <h2
-          className="d-flex justify-content-center mt-3"
-          style={{
-            color: "white",
-            textShadow: "2px 2px 4px #000000",
-          }}
-        >
-          Admin Dashboard
-        </h2>
+        <h2 className="d-flex justify-content-center mt-3">Admin Dashboard</h2>
         <hr
           style={{
             color: "#0c0c0c",
